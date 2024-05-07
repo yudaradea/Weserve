@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap" rel="stylesheet" />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Alpine JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./styles/output.css" />
+    <title>WeServer</title>
+  </head>
+  <body class="bg-color-body font-poppins">
+    <header class="fixed top-0 z-50 w-full">
+      <nav class="container py-6 flex justify-between items-center" x-data="{isOpen : false}">
+        <div>
+          <!-- Logo -->
+          <a href="#home" class="flex items-center gap-1">
+            <img src="img/logo-64.svg" alt="" />
+            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">weserve.</h1>
+          </a>
+        </div>
+
+        <!-- Link -->
+        <ul class="text-base text-color-black hidden lg:flex items-center justify-center gap-8">
+          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Products</a></li>
+          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Services</a></li>
+          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Pricing</a></li>
+          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Testimonials</a></li>
+          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Blog</a></li>
+        </ul>
+
+        <div class="hidden lg:flex items-center gap-4">
+          <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
+          <button class="btn-1">Sign In</button>
+        </div>
+
+        <!-- Mobile Menu -->
+
+        <!-- Mobile Menu Hamburger-->
+        <div class="lg:hidden flex items-center gap-3">
+          <div>
+            <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
+          </div>
+          <div class="text-2xl z-50" @click="isOpen = !isOpen" :class="isOpen ? 'hidden' : ''">
+            <i class="fa-solid fa-bars text-color-black"></i>
+          </div>
+
+          <div class="text-2xl z-50" @click="isOpen = !isOpen" :class="isOpen ? '' : 'hidden'">
+            <i class="fa-solid fa-xmark text-white"></i>
+          </div>
+        </div>
+
+        <!-- Nav Link Mobile -->
+        <div
+          class="h-[100vh] absolute inset-0 lg:hidden bg-color-purple"
+          x-show="isOpen"
+          x-transition:enter="transition ease duration-700 transform"
+          x-transition:enter-start="opacity-0 translate-y-full"
+          x-transition:enter-end="opacity-100 -translate-y-0"
+          x-transition:leave="transition ease duration-1000 transform"
+          x-transition:leave-start="opacity-100 -translate-y-0"
+          x-transition:leave-end="opacity-0 translate-x-full"
+        >
+          <ul class="h-full grid place-items-center py-20 text-white">
+            <li><a href="" class="transition-colors ease-in duration-200">Products</a></li>
+            <li><a href="" class="transition-colors ease-in duration-200">Services</a></li>
+            <li><a href="" class="transition-colors ease-in duration-200">Pricing</a></li>
+            <li><a href="" class="transition-colors ease-in duration-200">Testimonials</a></li>
+            <li><a href="" class="transition-colors ease-in duration-200">Blog</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Swiperjs -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Aos -->
+    <script>
+      AOS.init({ once: true });
+    </script>
+  </body>
+</html>
