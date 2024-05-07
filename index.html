@@ -42,7 +42,7 @@
   </head>
   <body class="bg-color-body font-poppins">
     <header
-      class="sticky top-0 z-50"
+      class="sticky top-0 z-50 max-w-screen-2xl mx-auto"
       x-data="{ scroll: false }"
       @scroll.window="scroll = (window.pageYOffset > 70) ? true : false"
       :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }"
@@ -184,7 +184,7 @@
 
     <main>
       <!-- Hero Section -->
-      <section id="hero">
+      <section id="hero max-w-screen-2xl">
         <div class="container py-16">
           <div
             class="flex flex-col items-center lg:flex-row lg:justify-between"
