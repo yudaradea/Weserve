@@ -588,9 +588,9 @@ video {
   }
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1650px) {
   .container {
-    max-width: 1536px;
+    max-width: 1650px;
   }
 }
 
@@ -754,6 +754,11 @@ video {
 .bg-color-purple {
   --tw-bg-opacity: 1;
   background-color: rgb(100 14 241 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {

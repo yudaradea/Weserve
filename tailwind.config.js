@@ -29,7 +29,7 @@ module.exports = {
         md: "728px",
         lg: "984px",
         xl: "1240px",
-        "2xl": "1536px",
+        "2xl": "1650px",
       },
       center: true,
     },
