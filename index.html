@@ -190,14 +190,18 @@
             class="flex flex-col items-center lg:flex-row lg:justify-between"
           >
             <div class="lg:w-1/2 order-2 lg:order-1">
-              <div class="inline-block bg-white py-2 px-4 md:px-6 rounded-full">
-                <div class="flex items-center gap-2">
-                  <img src="img/global.svg" alt="" />
-                  <p
-                    class="text-[13px] md:text-base font-semibold md:tracking-wide"
-                  >
-                    We host more than 120,000 websites
-                  </p>
+              <div class="flex justify-center lg:justify-normal">
+                <div
+                  class="inline-block bg-white py-2 px-4 md:px-6 rounded-full"
+                >
+                  <div class="flex items-center gap-2">
+                    <img src="img/global.svg" alt="" />
+                    <p
+                      class="text-[13px] md:text-base font-semibold md:tracking-wide"
+                    >
+                      We host more than 120,000 websites
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="text-center lg:text-start">
@@ -215,7 +219,7 @@
               </div>
               <a
                 href=""
-                class="flex flex-col md:flex-row items-center gap-8 pt-10"
+                class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10"
               >
                 <button class="btn-2">Try Free Trial</button>
                 <div class="flex gap-1 items-center">
@@ -231,30 +235,74 @@
               <img src="img/hero-image.png" alt="" />
             </div>
           </div>
+        </div>
 
-          <!-- Vendor -->
-          <div
-            class="pt-12 lg:pt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 place-items-center lg:w-[85%] lg:mx-auto gap-y-6 lg:gap-y-0 bg-red-400"
-          >
-            <div class="flex items-center gap-1">
-              <img src="img/vendor-1.png" alt="" />
-              <p class="font-bold text-color-black">LogoIpsum</p>
-            </div>
-            <div class="flex items-center gap-1">
-              <img src="img/vendor-2.png" alt="" />
-              <p class="font-bold text-color-black">LogoIpsum</p>
-            </div>
-            <div class="flex items-center gap-1">
-              <img src="img/vendor-1.png" alt="" />
-              <p class="font-bold text-color-black">LogoIpsum</p>
-            </div>
-            <div class="flex items-center gap-1">
-              <img src="img/vendor-2.png" alt="" />
-              <p class="font-bold text-color-black">LogoIpsum</p>
-            </div>
-            <div class="flex items-center gap-1">
-              <img src="img/vendor-1.png" alt="" />
-              <p class="font-bold text-color-black">LogoIpsum</p>
+        <!-- Vendor -->
+        <div class="md:container pb-16 -mt-4">
+          <div class="lg:w-[85%] w-[450px] md:w-[90%] mx-auto">
+            <div class="swiper swiperVendor">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-1.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-2.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-1.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-2.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-1.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-1.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-2.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-1.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-2.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex items-center gap-1">
+                    <img src="img/vendor-1.png" alt="" />
+                    <p class="font-bold text-color-black">LogoIpsum</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -270,6 +318,40 @@
     <!-- Aos -->
     <script>
       AOS.init({ once: true });
+    </script>
+
+    <!-- Swiper Vendor -->
+    <script>
+      const swiperVendor = new Swiper(".swiperVendor", {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 3,
+        spaceBetween: 0,
+        allowTouchMove: false,
+        disableOnInteraction: true,
+        speed: 3000,
+        autoplay: {
+          delay: 0,
+        },
+        breakpoints: {
+          1920: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+          1028: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+          990: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+          728: {
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+          },
+        },
+      });
     </script>
   </body>
 </html>

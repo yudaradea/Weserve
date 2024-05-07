@@ -10,3 +10,12 @@
 .btn-2 {
   @apply py-4 px-10 rounded-full bg-color-purple text-white hover:outline-none hover:bg-transparent hover:ring hover:ring-color-purple hover:text-color-black transition-colors duration-300 ease-in-out font-semibold;
 }
+
+/* Swiperjs */
+.swiper-wrapper {
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
+
+.swiper-slide {
+}
