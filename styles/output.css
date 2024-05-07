@@ -665,6 +665,10 @@ video {
   width: 450px;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .grow {
   flex-grow: 1;
 }
