@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- fontawesome -->
     <link
@@ -16,10 +22,16 @@
       referrerpolicy="no-referrer"
     />
     <!-- Alpine JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
 
     <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
     <!-- Aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -29,27 +41,73 @@
     <title>WeServer</title>
   </head>
   <body class="bg-color-body font-poppins">
-    <header class="fixed top-0 z-50 w-full">
-      <nav class="container py-6 flex justify-between items-center" x-data="{isOpen : false}">
+    <header
+      class="sticky top-0 z-50"
+      x-data="{ scroll: false }"
+      @scroll.window="scroll = (window.pageYOffset > 70) ? true : false"
+      :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }"
+    >
+      <nav
+        class="container py-6 flex justify-between items-center"
+        x-data="{isOpen : false}"
+      >
         <div>
           <!-- Logo -->
           <a href="#home" class="flex items-center gap-1">
             <img src="img/logo-64.svg" alt="" />
-            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">weserve.</h1>
+            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">
+              weserve.
+            </h1>
           </a>
         </div>
 
         <!-- Link -->
-        <ul class="text-base text-color-black hidden lg:flex items-center justify-center gap-8">
-          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Products</a></li>
-          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Services</a></li>
-          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Pricing</a></li>
-          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Testimonials</a></li>
-          <li><a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Blog</a></li>
+        <ul
+          class="text-base text-color-black hidden lg:flex items-center justify-center gap-8"
+        >
+          <li>
+            <a
+              href=""
+              class="hover:text-color-purple transition-colors ease-in duration-200"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="hover:text-color-purple transition-colors ease-in duration-200"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="hover:text-color-purple transition-colors ease-in duration-200"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="hover:text-color-purple transition-colors ease-in duration-200"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="hover:text-color-purple transition-colors ease-in duration-200"
+              >Blog</a
+            >
+          </li>
         </ul>
 
         <div class="hidden lg:flex items-center gap-4">
-          <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
+          <img
+            src="img/bag-2.svg"
+            alt=""
+            class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300"
+          />
           <button class="btn-1">Sign In</button>
         </div>
 
@@ -58,13 +116,28 @@
         <!-- Mobile Menu Hamburger-->
         <div class="lg:hidden flex items-center gap-3">
           <div>
-            <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
+            <img
+              src="img/bag-2.svg"
+              alt=""
+              class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300"
+            />
           </div>
-          <div class="text-2xl z-50" @click="isOpen = !isOpen" :class="isOpen ? 'hidden' : ''">
+          <div
+            class="text-2xl z-50"
+            @click="isOpen = !isOpen"
+            :class="isOpen ? 'hidden' : ''"
+          >
             <i class="fa-solid fa-bars text-color-black"></i>
           </div>
 
-          <div class="text-2xl z-50" @click="isOpen = !isOpen" :class="isOpen ? '' : 'hidden'">
+          <div
+            class="text-3xl z-50"
+            @click="isOpen = !isOpen"
+            x-show="isOpen"
+            x-transition:enter="transition ease duration-700 transform"
+            x-transition:enter-start="scale-0"
+            x-transition:enter-end="opacity-100 scale-100"
+          >
             <i class="fa-solid fa-xmark text-white"></i>
           </div>
         </div>
@@ -78,18 +151,115 @@
           x-transition:enter-end="opacity-100 -translate-y-0"
           x-transition:leave="transition ease duration-1000 transform"
           x-transition:leave-start="opacity-100 -translate-y-0"
-          x-transition:leave-end="opacity-0 translate-x-full"
+          x-transition:leave-end="opacity-0 translate-y-full"
         >
           <ul class="h-full grid place-items-center py-20 text-white">
-            <li><a href="" class="transition-colors ease-in duration-200">Products</a></li>
-            <li><a href="" class="transition-colors ease-in duration-200">Services</a></li>
-            <li><a href="" class="transition-colors ease-in duration-200">Pricing</a></li>
-            <li><a href="" class="transition-colors ease-in duration-200">Testimonials</a></li>
-            <li><a href="" class="transition-colors ease-in duration-200">Blog</a></li>
+            <li>
+              <a href="" class="transition-colors ease-in duration-200"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a href="" class="transition-colors ease-in duration-200"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="" class="transition-colors ease-in duration-200"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a href="" class="transition-colors ease-in duration-200"
+                >Testimonials</a
+              >
+            </li>
+            <li>
+              <a href="" class="transition-colors ease-in duration-200">Blog</a>
+            </li>
           </ul>
         </div>
       </nav>
     </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="container py-16">
+          <div
+            class="flex flex-col items-center lg:flex-row lg:justify-between"
+          >
+            <div class="lg:w-1/2 order-2 lg:order-1">
+              <div class="inline-block bg-white py-2 px-4 md:px-6 rounded-full">
+                <div class="flex items-center gap-2">
+                  <img src="img/global.svg" alt="" />
+                  <p
+                    class="text-sm md:text-base font-semibold md:tracking-wide"
+                  >
+                    We host more than 120,000 websites
+                  </p>
+                </div>
+              </div>
+              <div class="text-center lg:text-start">
+                <h1
+                  class="pt-14 font-Clash_Display text-[26px] md:text-4xl lg:text-7xl font-bold"
+                >
+                  Grow Online Business Faster.
+                </h1>
+                <p
+                  class="text-color-text pt-6 leading-6 lg:leading-8 tracking-wider text-sm md:text-base md:w-[90%]"
+                >
+                  We provide a variety of servers to grow your users acquisition
+                  much user-friendly and boosting up sales.
+                </p>
+              </div>
+              <a
+                href=""
+                class="flex flex-col md:flex-row items-center gap-8 pt-10"
+              >
+                <button class="btn-2">Try Free Trial</button>
+                <div class="flex gap-1 items-center">
+                  <img src="img/device-message.svg" alt="" />
+                  <p class="text-color-purple font-semibold">Schedule a Demo</p>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2"
+            >
+              <img src="img/hero-image.png" alt="" />
+            </div>
+          </div>
+
+          <!-- Vendor -->
+          <div
+            class="pt-12 lg:pt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 place-items-center lg:w-[85%] lg:mx-auto gap-y-6 lg:gap-y-0"
+          >
+            <div class="flex items-center gap-1">
+              <img src="img/vendor-1.png" alt="" />
+              <p class="font-bold text-color-black">LogoIpsum</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <img src="img/vendor-2.png" alt="" />
+              <p class="font-bold text-color-black">LogoIpsum</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <img src="img/vendor-1.png" alt="" />
+              <p class="font-bold text-color-black">LogoIpsum</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <img src="img/vendor-2.png" alt="" />
+              <p class="font-bold text-color-black">LogoIpsum</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <img src="img/vendor-1.png" alt="" />
+              <p class="font-bold text-color-black">LogoIpsum</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Swiperjs -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

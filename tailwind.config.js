@@ -8,6 +8,7 @@ module.exports = {
         "color-body": "#F1F4F5",
         "color-black": "#080C2E",
         "color-purple": "#640EF1",
+        "color-text": "#5D5D7C",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
