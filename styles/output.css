@@ -565,6 +565,8 @@ video {
 @media (min-width: 600px) {
   .container {
     max-width: 600px;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
 
@@ -577,20 +579,24 @@ video {
 @media (min-width: 984px) {
   .container {
     max-width: 984px;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 }
 
 @media (min-width: 1240px) {
   .container {
     max-width: 1240px;
+    padding-right: 5rem;
+    padding-left: 5rem;
   }
 }
 
-@media (min-width: 1650px) {
+@media (min-width: 1496px) {
   .container {
-    max-width: 1650px;
+    max-width: 1496px;
+    padding-right: 6rem;
+    padding-left: 6rem;
   }
 }
 
