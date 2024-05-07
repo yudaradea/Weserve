@@ -18,4 +18,5 @@
 }
 
 .swiper-slide {
+  overflow: hidden !important;
 }
