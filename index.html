@@ -4,14 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="styles/clash-display.css" rel="stylesheet" />
 
     <!-- fontawesome -->
     <link
@@ -22,16 +16,10 @@
       referrerpolicy="no-referrer"
     />
     <!-- Alpine JS -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Swiper -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -41,73 +29,37 @@
     <title>WeServer</title>
   </head>
   <body class="bg-color-body font-poppins">
-    <header
-      class="sticky top-0 z-50 mx-auto"
-      x-data="{ scroll: false }"
-      @scroll.window="scroll = (window.pageYOffset > 70) ? true : false"
-      :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }"
-    >
-      <nav
-        class="container py-6 flex justify-between items-center"
-        x-data="{isOpen : false}"
-      >
+    <header class="sticky top-0 z-50 mx-auto" x-data="{ scroll: false }" @scroll.window="scroll = (window.pageYOffset > 70) ? true : false" :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }">
+      <nav class="container py-6 flex justify-between items-center" x-data="{isOpen : false}">
         <div>
           <!-- Logo -->
           <a href="#home" class="flex items-center gap-1">
             <img src="img/logo-64.svg" alt="" />
-            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">
-              weserve.
-            </h1>
+            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">weserve.</h1>
           </a>
         </div>
 
         <!-- Link -->
-        <ul
-          class="text-base text-color-black hidden lg:flex items-center justify-center gap-8"
-        >
+        <ul class="text-base text-color-black hidden lg:flex items-center justify-center gap-8">
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Products</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Products</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Services</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Services</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Pricing</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Pricing</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Testimonials</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Testimonials</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Blog</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Blog</a>
           </li>
         </ul>
 
         <div class="hidden lg:flex items-center gap-4">
-          <img
-            src="img/bag-2.svg"
-            alt=""
-            class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300"
-          />
+          <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
           <button class="btn-1">Sign In</button>
         </div>
 
@@ -116,28 +68,13 @@
         <!-- Mobile Menu Hamburger-->
         <div class="lg:hidden flex items-center gap-3">
           <div>
-            <img
-              src="img/bag-2.svg"
-              alt=""
-              class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300"
-            />
+            <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
           </div>
-          <div
-            class="text-2xl z-50"
-            @click="isOpen = !isOpen"
-            :class="isOpen ? 'hidden' : ''"
-          >
+          <div class="text-2xl z-50" @click="isOpen = !isOpen" :class="isOpen ? 'hidden' : ''">
             <i class="fa-solid fa-bars text-color-black"></i>
           </div>
 
-          <div
-            class="text-3xl z-50"
-            @click="isOpen = !isOpen"
-            x-show="isOpen"
-            x-transition:enter="transition ease duration-700 transform"
-            x-transition:enter-start="scale-0"
-            x-transition:enter-end="opacity-100 scale-100"
-          >
+          <div class="text-3xl z-50" @click="isOpen = !isOpen" x-show="isOpen" x-transition:enter="transition ease duration-700 transform" x-transition:enter-start="scale-0" x-transition:enter-end="opacity-100 scale-100">
             <i class="fa-solid fa-xmark text-white"></i>
           </div>
         </div>
@@ -155,24 +92,16 @@
         >
           <ul class="h-full grid place-items-center py-20 text-white">
             <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Products</a
-              >
+              <a href="" class="transition-colors ease-in duration-200">Products</a>
             </li>
             <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Services</a
-              >
+              <a href="" class="transition-colors ease-in duration-200">Services</a>
             </li>
             <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Pricing</a
-              >
+              <a href="" class="transition-colors ease-in duration-200">Pricing</a>
             </li>
             <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Testimonials</a
-              >
+              <a href="" class="transition-colors ease-in duration-200">Testimonials</a>
             </li>
             <li>
               <a href="" class="transition-colors ease-in duration-200">Blog</a>
@@ -186,41 +115,21 @@
       <!-- Hero Section -->
       <section id="hero ">
         <div class="container py-16">
-          <div
-            class="flex flex-col items-center lg:flex-row lg:justify-between"
-          >
+          <div class="flex flex-col items-center lg:flex-row lg:justify-between">
             <div class="lg:w-1/2 order-2 lg:order-1">
               <div class="flex justify-center lg:justify-normal">
-                <div
-                  class="inline-block bg-white py-2 px-4 md:px-6 rounded-full"
-                >
+                <div class="inline-block bg-white py-2 px-4 md:px-6 rounded-full">
                   <div class="flex items-center gap-2">
                     <img src="img/global.svg" alt="" />
-                    <p
-                      class="text-[13px] md:text-base font-semibold md:tracking-wide"
-                    >
-                      We host more than 120,000 websites
-                    </p>
+                    <p class="text-[13px] md:text-base font-semibold md:tracking-wide">We host more than 120,000 websites</p>
                   </div>
                 </div>
               </div>
               <div class="text-center lg:text-start">
-                <h1
-                  class="pt-14 font-Clash_Display text-[26px] md:text-4xl lg:text-7xl font-bold"
-                >
-                  Grow Online Business Faster.
-                </h1>
-                <p
-                  class="text-color-text pt-6 leading-6 lg:leading-8 tracking-wider text-sm md:text-base md:w-[90%]"
-                >
-                  We provide a variety of servers to grow your users acquisition
-                  much user-friendly and boosting up sales.
-                </p>
+                <h1 class="pt-14 font-Clash_Display text-xl md:text-4xl lg:text-6xl font-bold">Grow Online Business Faster.</h1>
+                <p class="text-color-text pt-6 leading-6 lg:leading-8 tracking-wider text-sm md:text-base md:w-[90%]">We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.</p>
               </div>
-              <a
-                href=""
-                class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10"
-              >
+              <a href="" class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10">
                 <button class="btn-2">Try Free Trial</button>
                 <div class="flex gap-1 items-center">
                   <img src="img/device-message.svg" alt="" />
@@ -229,16 +138,14 @@
               </a>
             </div>
 
-            <div
-              class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2"
-            >
+            <div class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2">
               <img src="img/hero-image.png" alt="" />
             </div>
           </div>
         </div>
 
         <!-- Vendor -->
-        <div class="md:container pb-16 -mt-4">
+        <div class="md:container pb-6 -mt-4">
           <div class="lg:w-[85%] w-full md:w-[90%] mx-auto">
             <div class="swiper swiperVendor">
               <div class="swiper-wrapper">
@@ -307,6 +214,413 @@
           </div>
         </div>
       </section>
+      <!-- Hero Section -->
+
+      <!-- Features Section -->
+      <section id="features">
+        <div class="container py-16">
+          <h1 class="font-semibold font-Clash_Display text-3xl md:text-4xl text-center">Your Best Choice</h1>
+
+          <!-- Content -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 place-items-center gap-6 pt-8 md:pt-12">
+            <!-- Content 1 -->
+            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-[90%] md:w-full mx-auto shadow-md">
+              <div>
+                <svg class="stroke-color-purple" width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32.0292 27.6V16.2917C32.0292 15.2375 31.1667 14.375 30.1125 14.375H24.5541" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M27.4292 11.5L23.9792 14.375L27.4292 17.25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M14.9708 19.55V27.6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M15.2584 18.975C17.3225 18.975 18.9959 17.3017 18.9959 15.2375C18.9959 13.1734 17.3225 11.5 15.2584 11.5C13.1942 11.5 11.5208 13.1734 11.5208 15.2375C11.5208 17.3017 13.1942 18.975 15.2584 18.975Z"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14.9708 34.5C16.8762 34.5 18.4208 32.9554 18.4208 31.05C18.4208 29.1446 16.8762 27.6 14.9708 27.6C13.0654 27.6 11.5208 29.1446 11.5208 31.05C11.5208 32.9554 13.0654 34.5 14.9708 34.5Z"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32.0292 34.5C33.9346 34.5 35.4792 32.9554 35.4792 31.05C35.4792 29.1446 33.9346 27.6 32.0292 27.6C30.1238 27.6 28.5792 29.1446 28.5792 31.05C28.5792 32.9554 30.1238 34.5 32.0292 34.5Z"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17.75 42.1666H29.25C38.8333 42.1666 42.6667 38.3333 42.6667 28.75V17.25C42.6667 7.66665 38.8333 3.83331 29.25 3.83331H17.75C8.16668 3.83331 4.33334 7.66665 4.33334 17.25V28.75C4.33334 38.3333 8.16668 42.1666 17.75 42.1666Z"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="text-center md:text-start">
+                <h1 class="font-bold text-xl tracking-tight text-color-black">Extra Layers</h1>
+                <p class="pt-2 text-color-text text-sm">Making your project more secure avoiding DDoS</p>
+              </div>
+              <div class="text-center md:text-start">
+                <a href="" class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300">Learn More</a>
+              </div>
+            </div>
+
+            <!-- Content 2 -->
+            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-[90%] md:w-full mx-auto shadow-md">
+              <div>
+                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M25.2633 4.33167L37.7408 11.0592C39.1975 11.845 39.1975 14.0875 37.7408 14.8733L25.2633 21.6008C24.1517 22.195 22.8483 22.195 21.7367 21.6008L9.25917 14.8733C7.80251 14.0875 7.80251 11.845 9.25917 11.0592L21.7367 4.33167C22.8483 3.73751 24.1517 3.73751 25.2633 4.33167Z"
+                    stroke="#640EF1"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.41916 19.4158L19.015 25.2233C20.4525 25.9516 21.3725 27.4275 21.3725 29.0375V40.0008C21.3725 41.5917 19.705 42.6075 18.2867 41.8983L6.69083 36.0908C5.25333 35.3625 4.33333 33.8867 4.33333 32.2767V21.3133C4.33333 19.7225 6.00083 18.7066 7.41916 19.4158Z"
+                    stroke="#640EF1"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M39.5808 19.4158L27.985 25.2233C26.5475 25.9516 25.6275 27.4275 25.6275 29.0375V40.0008C25.6275 41.5917 27.295 42.6075 28.7133 41.8983L40.3092 36.0908C41.7467 35.3625 42.6667 33.8867 42.6667 32.2767V21.3133C42.6667 19.7225 40.9992 18.7066 39.5808 19.4158Z"
+                    stroke="#640EF1"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="text-center md:text-start">
+                <h1 class="font-bold text-xl tracking-tight text-color-black">Customizable</h1>
+                <p class="pt-2 text-color-text text-sm">Only install what your business needs to grow</p>
+              </div>
+              <div class="text-center md:text-start">
+                <a href="" class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300">Learn More</a>
+              </div>
+            </div>
+
+            <!-- Content 3 -->
+            <div class="flex flex-col gap-8 bg-color-black p-6 rounded-xl justify-end items-center md:items-start w-[90%] md:w-full mx-auto shadow-md relative">
+              <div class="w-14 h-40 bg-white absolute top-4 right-14 -skew-x-[30deg] blur-2xl -z10 opacity-30 overflow-hidden rounded-full"></div>
+              <div>
+                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.6867 34.7875V30.82" stroke="white" stroke-width="3" stroke-linecap="round" />
+                  <path d="M23.5 34.7875V26.8525" stroke="white" stroke-width="3" stroke-linecap="round" />
+                  <path d="M33.3133 34.7875V22.8658" stroke="white" stroke-width="3" stroke-linecap="round" />
+                  <path d="M33.3133 11.2125L32.4317 12.2475C27.5442 17.9592 20.9892 22.0034 13.6867 23.8242" stroke="white" stroke-width="3" stroke-linecap="round" />
+                  <path d="M27.6975 11.2125H33.3133V16.8092" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M17.75 42.1666H29.25C38.8333 42.1666 42.6667 38.3333 42.6667 28.75V17.25C42.6667 7.66665 38.8333 3.83331 29.25 3.83331H17.75C8.16667 3.83331 4.33334 7.66665 4.33334 17.25V28.75C4.33334 38.3333 8.16667 42.1666 17.75 42.1666Z"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="text-center md:text-start">
+                <h1 class="font-bold text-xl tracking-tight text-white">AI Automation</h1>
+                <p class="pt-2 text-sm text-[#8D90A8]">Decide the business flow based on latest reports</p>
+              </div>
+              <div class="text-center md:text-start">
+                <a href="" class="font-bold text-sm text-white hover:text-color-purple transition-colors duration-300">Learn More</a>
+              </div>
+            </div>
+
+            <!-- Content 4 -->
+            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-[90%] md:w-full mx-auto shadow-md">
+              <div>
+                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 11.9792V15.8125" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M42.6667 23V17.25C42.6667 7.66665 38.8333 3.83331 29.25 3.83331H17.75C8.16668 3.83331 4.33334 7.66665 4.33334 17.25V28.75C4.33334 38.3333 8.16668 42.1666 17.75 42.1666H23.5"
+                    stroke="#640EF1"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M19.6667 11.9792V15.8125" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12 30.6667V34.5" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M19.6667 30.6667V34.5" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M27.3333 13.8958H35" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M4.33334 23H42.6667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M41.8233 38.9659C40.75 40.825 38.7375 42.0708 36.4375 42.0708C33.0067 42.0708 30.8983 38.6208 30.8983 38.6208M31.0325 32.7558C32.1058 30.8775 34.1183 29.6317 36.4375 29.6317C40.5967 29.6317 42.6667 33.0817 42.6667 33.0817M42.6667 29.2292V33.0625H38.8333M34.7316 38.6017H30.8983V42.1667"
+                    stroke="#640EF1"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="text-center md:text-start">
+                <h1 class="font-bold text-xl tracking-tight text-color-black">Auto-Scaling</h1>
+                <p class="pt-2 text-color-text text-sm">Have a long weekend without worrying any loss</p>
+              </div>
+              <div class="text-center md:text-start">
+                <a href="" class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col lg:flex-row items-center lg:justify-between pt-20 md:pt-24">
+            <div class="w-full lg:w-1/2 relative">
+              <div class="w-[85%] md:w-[88%] lg:w-[70%] mx-auto overflow-hidden rounded-tr-[70px] rounded-b-[70px]">
+                <img src="img/features-images.png" alt="" class="w-full hover:scale-110 ease-in duration-500" />
+              </div>
+              <div class="absolute top-0 right-0 lg:right-[60px] p-4 md:p-6 lg:p-4 bg-color-purple rounded-full">
+                <svg class="h-10 w-10 md:h-16 md:w-16 lg:h-12 lg:w-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M32.5083 36.8783H14.4917C13.6867 36.8783 12.7858 36.2458 12.5175 35.4791L4.5825 13.2841C3.45167 10.1025 4.77417 9.12498 7.49583 11.08L14.9708 16.4275C16.2167 17.29 17.635 16.8491 18.1717 15.45L21.545 6.46082C22.6183 3.58582 24.4008 3.58582 25.4742 6.46082L28.8475 15.45C29.3842 16.8491 30.8025 17.29 32.0292 16.4275L39.0442 11.425C42.0342 9.27831 43.4717 10.3708 42.245 13.84L34.5017 35.5175C34.2142 36.2458 33.3133 36.8783 32.5083 36.8783Z"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M12.9583 42.6666H34.0417" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M18.7083 27.3334H28.2917" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="absolute top-[15%] left-0 lg:left-8 py-6 px-4 bg-white shadow-lg rounded-3xl">
+                <div class="flex flex-col items-center gap-4 md:gap-6">
+                  <div>
+                    <svg class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.1867 35.2874V31.3199" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
+                      <path d="M23 35.2875V27.3525" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
+                      <path d="M32.8133 35.2875V23.3658" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
+                      <path d="M32.8133 11.7125L31.9317 12.7475C27.0442 18.4592 20.4892 22.5034 13.1867 24.3242" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
+                      <path d="M27.1975 11.7125H32.8133V17.3092" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M17.25 42.6667H28.75C38.3333 42.6667 42.1667 38.8334 42.1667 29.25V17.75C42.1667 8.16671 38.3333 4.33337 28.75 4.33337H17.25C7.66668 4.33337 3.83334 8.16671 3.83334 17.75V29.25C3.83334 38.8334 7.66668 42.6667 17.25 42.6667Z"
+                        stroke="#640EF1"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h1 class="font-bold text-sm md:text-xl lg:text-lg">5/5 Growth</h1>
+                    <div class="flex gap-1 text-yellow-400 text-[10px] md:text-sm pt-1 justify-center">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-[15%] right-0 lg:right-[40px] py-6 px-4 bg-white shadow-lg rounded-3xl">
+                <div class="flex items-center gap-4">
+                  <div>
+                    <svg class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M16.7917 36.8591H15.8333C8.16668 36.8591 4.33334 34.9424 4.33334 25.3591V15.7758C4.33334 8.10909 8.16668 4.27576 15.8333 4.27576H31.1667C38.8333 4.27576 42.6667 8.10909 42.6667 15.7758V25.3591C42.6667 33.0258 38.8333 36.8591 31.1667 36.8591H30.2083C29.6142 36.8591 29.0392 37.1466 28.675 37.6258L25.8 41.4591C24.535 43.1458 22.465 43.1458 21.2 41.4591L18.325 37.6258C18.0183 37.2041 17.3283 36.8591 16.7917 36.8591Z"
+                        stroke="#640EF1"
+                        stroke-width="3"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path d="M15.8333 17.175L12 21.0084L15.8333 24.8417" stroke="#640EF1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M31.1667 17.175L35 21.0084L31.1667 24.8417" stroke="#640EF1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M25.4167 16.5425L21.5833 25.4742" stroke="#640EF1" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h1 class="text-color-black text-sm md:text-lg lg:text-base font-bold">AI Automation</h1>
+                    <p class="pt-1 text-color-text text-xs md:text-base lg:text-sm">Working Faster</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full pt-12 lg:pt-0 lg:w-1/2 lg:flex lg:justify-end">
+              <div class="lg:w-[90%] text-center lg:text-start">
+                <h1 class="font-Clash_Display font-bold leading-snug md:leading-[60px] text-3xl md:text-5xl">We Have Very Strong Ecosystem</h1>
+                <p class="text-color-text leading-relaxed pt-6 lg:pt-4 text-sm text-justify md:text-lg lg:text-start lg:text-base md:leading-[30px] lg:leading-[30px]">
+                  We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.
+                </p>
+
+                <div class="py-10 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:place-items-center md:space-y-0 lg:block lg:space-y-6">
+                  <!-- content 1 -->
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
+                    <div>
+                      <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M17.6925 42.1667H29.1925C38.7758 42.1667 42.6092 38.3334 42.6092 28.75V17.25C42.6092 7.66671 38.7758 3.83337 29.1925 3.83337H17.6925C8.10917 3.83337 4.27583 7.66671 4.27583 17.25V28.75C4.27583 38.3334 8.10917 42.1667 17.6925 42.1667Z"
+                          stroke="#640EF1"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.27583 24.3417L15.7758 24.3034C17.2133 24.3034 18.8233 25.3959 19.36 26.7375L21.545 32.2575C22.0433 33.5034 22.8292 33.5034 23.3275 32.2575L27.7167 21.1217C28.1383 20.0484 28.9242 20.01 29.4608 21.0259L31.4542 24.8017C32.0483 25.9325 33.5817 26.8525 34.8467 26.8525H42.6283"
+                          stroke="#640EF1"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="text-start">
+                      <h1 class="font-bold text-xl">$880 Mio</h1>
+                      <p class="text-color-text">Company budget saved</p>
+                    </div>
+                  </div>
+
+                  <!-- content 2 -->
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
+                    <div>
+                      <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M17.6925 42.1667H29.1925C38.7758 42.1667 42.6092 38.3334 42.6092 28.75V17.25C42.6092 7.66671 38.7758 3.83337 29.1925 3.83337H17.6925C8.10917 3.83337 4.27583 7.66671 4.27583 17.25V28.75C4.27583 38.3334 8.10917 42.1667 17.6925 42.1667Z"
+                          stroke="#640EF1"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.27583 24.3417L15.7758 24.3034C17.2133 24.3034 18.8233 25.3959 19.36 26.7375L21.545 32.2575C22.0433 33.5034 22.8292 33.5034 23.3275 32.2575L27.7167 21.1217C28.1383 20.0484 28.9242 20.01 29.4608 21.0259L31.4542 24.8017C32.0483 25.9325 33.5817 26.8525 34.8467 26.8525H42.6283"
+                          stroke="#640EF1"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="text-start">
+                      <h1 class="font-bold text-xl">$880 Mio</h1>
+                      <p class="text-color-text">Company budget saved</p>
+                    </div>
+                  </div>
+
+                  <!-- content 3 -->
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
+                    <div>
+                      <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M17.6925 42.1667H29.1925C38.7758 42.1667 42.6092 38.3334 42.6092 28.75V17.25C42.6092 7.66671 38.7758 3.83337 29.1925 3.83337H17.6925C8.10917 3.83337 4.27583 7.66671 4.27583 17.25V28.75C4.27583 38.3334 8.10917 42.1667 17.6925 42.1667Z"
+                          stroke="#640EF1"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.27583 24.3417L15.7758 24.3034C17.2133 24.3034 18.8233 25.3959 19.36 26.7375L21.545 32.2575C22.0433 33.5034 22.8292 33.5034 23.3275 32.2575L27.7167 21.1217C28.1383 20.0484 28.9242 20.01 29.4608 21.0259L31.4542 24.8017C32.0483 25.9325 33.5817 26.8525 34.8467 26.8525H42.6283"
+                          stroke="#640EF1"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div class="text-start">
+                      <h1 class="font-bold text-xl">$880 Mio</h1>
+                      <p class="text-color-text">Company budget saved</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start pt-2 md:pt-4 lg:pt-0">
+                  <button class="btn-2">Explore More</button>
+                  <div class="flex gap-1 items-center">
+                    <img src="img/device-message.svg" alt="" />
+                    <p class="text-color-purple font-semibold">Schedule a Demo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Features Section -->
+
+      <!-- Section ShowCase -->
+      <section id="showcase">
+        <div class="pt-2 md:pt-6 lg:pt-8 pb-16">
+          <div class="container">
+            <div class="text-center lg:w-[60%] mx-auto">
+              <h1 class="font-Clash_Display font-bold text-3xl md:text-4xl pb-6">Our Showcase</h1>
+              <p class="text-sm md:text-base text-color-text leading-relaxed md:leading-[30px]">They built amazing website to help more people around the world by using our recommendation services and products</p>
+            </div>
+          </div>
+
+          <!-- Slider -->
+          <div class="pt-12">
+            <div class="swiper swiperShowCase">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                  <div class="relative shadow-lg group p-2 border rounded-xl bg-white h-[220px] hover:bg-color-purple transition-colors ease-in duration-500">
+                    <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill" />
+                    <button class="absolute py-2 px-4 rounded-full bg-color-purple text-white left-1/4 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">View Details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Section -->
     </main>
 
     <!-- Swiperjs -->
@@ -349,6 +663,48 @@
           728: {
             slidesPerView: 3.5,
             spaceBetween: 30,
+          },
+        },
+      });
+    </script>
+
+    <!-- Swiper Show Case -->
+    <script>
+      const swiperShowCase = new Swiper(".swiperShowCase", {
+        loop: false,
+        centeredSlides: false,
+        slidesPerView: 1.5,
+        spaceBetween: 10,
+        allowTouchMove: true,
+        disableOnInteraction: false,
+        speed: 700,
+        slidesOffsetBefore: 20,
+        slidesOffsetAfter: 20,
+        autoplay: false,
+        breakpoints: {
+          1920: {
+            slidesPerView: 4.5,
+            spaceBetween: 20,
+            slidesOffsetBefore: 50,
+            slidesOffsetAfter: 50,
+          },
+          1028: {
+            slidesPerView: 4.5,
+            spaceBetween: 20,
+            slidesOffsetBefore: 50,
+            slidesOffsetAfter: 50,
+          },
+          990: {
+            slidesPerView: 4.5,
+            spaceBetween: 20,
+            slidesOffsetBefore: 50,
+            slidesOffsetAfter: 50,
+          },
+          728: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+            slidesOffsetBefore: 50,
+            slidesOffsetAfter: 50,
           },
         },
       });
