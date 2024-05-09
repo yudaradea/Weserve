@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
     <link href="styles/clash-display.css" rel="stylesheet" />
 
     <!-- fontawesome -->
@@ -20,22 +17,13 @@
     />
 
     <!-- Alpine Plugins -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
-    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Alpine JS -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Swiper -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -44,74 +32,47 @@
     <link rel="stylesheet" href="./styles/output.css" />
     <title>WeServer</title>
   </head>
-  <body class="bg-color-body font-poppins">
+  <body
+    class="bg-color-body font-poppins"
+    x-data="{ scroll: false, modalMenu: false }"
+    @body-scroll="document.body.style.overflowY = modalMenu ? 'hidden' : ''"
+  >
+    <!-- Header -->
     <header
-      class="sticky top-0 z-50 mx-auto"
-      x-data="{ scroll: false }"
+      class="sticky top-0 z-40 mx-auto"
       @scroll.window="scroll = (window.pageYOffset > 70) ? true : false"
       :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }"
     >
-      <nav
-        class="container py-6 flex justify-between items-center"
-        x-data="{isOpen : false}"
-      >
+      <nav class="container py-6 flex justify-between items-center">
         <div>
           <!-- Logo -->
           <a href="#home" class="flex items-center gap-1">
             <img src="img/logo-64.svg" alt="" />
-            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">
-              weserve.
-            </h1>
+            <h1 class="text-2xl md:text-[28px] text-color-black font-bold">weserve.</h1>
           </a>
         </div>
 
         <!-- Link -->
-        <ul
-          class="text-base text-color-black hidden lg:flex items-center justify-center gap-8"
-        >
+        <ul class="text-base text-color-black hidden lg:flex items-center justify-center gap-8">
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Products</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Products</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Services</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Services</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Pricing</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Pricing</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Testimonials</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Testimonials</a>
           </li>
           <li>
-            <a
-              href=""
-              class="hover:text-color-purple transition-colors ease-in duration-200"
-              >Blog</a
-            >
+            <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Blog</a>
           </li>
         </ul>
 
         <div class="hidden lg:flex items-center gap-4">
-          <img
-            src="img/bag-2.svg"
-            alt=""
-            class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300"
-          />
+          <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
           <button class="btn-1">Sign In</button>
         </div>
 
@@ -120,68 +81,11 @@
         <!-- Mobile Menu Hamburger-->
         <div class="lg:hidden flex items-center gap-3">
           <div>
-            <img
-              src="img/bag-2.svg"
-              alt=""
-              class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300"
-            />
+            <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
           </div>
-          <div
-            class="text-2xl z-50"
-            @click="isOpen = !isOpen"
-            :class="isOpen ? 'hidden' : ''"
-          >
+          <div class="text-2xl z-50" @click="modalMenu = true; $dispatch('body-scroll', {})">
             <i class="fa-solid fa-bars text-color-black"></i>
           </div>
-
-          <div
-            class="text-3xl z-50"
-            @click="isOpen = !isOpen"
-            x-show="isOpen"
-            x-transition:enter="transition ease duration-700 transform"
-            x-transition:enter-start="scale-0"
-            x-transition:enter-end="opacity-100 scale-100"
-          >
-            <i class="fa-solid fa-xmark text-white"></i>
-          </div>
-        </div>
-
-        <!-- Nav Link Mobile -->
-        <div
-          class="h-[100vh] absolute inset-0 lg:hidden bg-color-purple"
-          x-show="isOpen"
-          x-transition:enter="transition ease duration-700 transform"
-          x-transition:enter-start="opacity-0 translate-y-full"
-          x-transition:enter-end="opacity-100 -translate-y-0"
-          x-transition:leave="transition ease duration-1000 transform"
-          x-transition:leave-start="opacity-100 -translate-y-0"
-          x-transition:leave-end="opacity-0 translate-y-full"
-        >
-          <ul class="h-full grid place-items-center py-20 text-white">
-            <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Products</a
-              >
-            </li>
-            <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Services</a
-              >
-            </li>
-            <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Pricing</a
-              >
-            </li>
-            <li>
-              <a href="" class="transition-colors ease-in duration-200"
-                >Testimonials</a
-              >
-            </li>
-            <li>
-              <a href="" class="transition-colors ease-in duration-200">Blog</a>
-            </li>
-          </ul>
         </div>
       </nav>
     </header>
@@ -190,41 +94,23 @@
       <!-- Hero Section -->
       <section id="hero ">
         <div class="container py-16">
-          <div
-            class="flex flex-col items-center lg:flex-row lg:justify-between"
-          >
+          <div class="flex flex-col items-center lg:flex-row lg:justify-between">
             <div class="lg:w-1/2 order-2 lg:order-1">
               <div class="flex justify-center lg:justify-normal">
-                <div
-                  class="inline-block bg-white py-2 px-4 md:px-6 rounded-full"
-                >
+                <div class="inline-block bg-white py-2 px-4 md:px-6 rounded-full">
                   <div class="flex items-center gap-2">
                     <img src="img/global.svg" alt="" />
-                    <p
-                      class="text-[13px] md:text-base font-semibold md:tracking-wide"
-                    >
-                      We host more than 120,000 websites
-                    </p>
+                    <p class="text-[13px] md:text-base font-semibold md:tracking-wide">We host more than 120,000 websites</p>
                   </div>
                 </div>
               </div>
               <div class="text-center lg:text-start">
-                <h1
-                  class="pt-14 font-Clash_Display text-xl md:text-4xl lg:text-6xl font-bold"
-                >
-                  Grow Online Business Faster.
-                </h1>
-                <p
-                  class="text-color-text pt-6 leading-6 lg:leading-8 tracking-wider text-sm md:text-base md:w-[90%]"
-                >
-                  We provide a variety of servers to grow your users acquisition
-                  much user-friendly and boosting up sales.
+                <h1 class="pt-14 font-Clash_Display text-xl md:text-4xl lg:text-6xl font-bold">Grow Online Business Faster.</h1>
+                <p class="text-color-text pt-6 leading-6 lg:leading-8 tracking-wider text-sm md:text-base md:w-[90%]">
+                  We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.
                 </p>
               </div>
-              <a
-                href=""
-                class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10"
-              >
+              <a href="" class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10">
                 <button class="btn-2">Try Free Trial</button>
                 <div class="flex gap-1 items-center">
                   <img src="img/device-message.svg" alt="" />
@@ -233,9 +119,7 @@
               </a>
             </div>
 
-            <div
-              class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2"
-            >
+            <div class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2">
               <img src="img/hero-image.png" alt="" />
             </div>
           </div>
@@ -316,47 +200,22 @@
       <!-- Features Section -->
       <section id="features">
         <div class="container py-16">
-          <h1
-            class="font-semibold font-Clash_Display text-3xl md:text-4xl text-center"
-          >
-            Your Best Choice
-          </h1>
+          <h1 class="font-semibold font-Clash_Display text-3xl md:text-4xl text-center">Your Best Choice</h1>
 
           <!-- Content -->
-          <div
-            class="grid md:grid-cols-2 lg:grid-cols-4 place-items-center gap-6 pt-8 md:pt-12"
-          >
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 place-items-center gap-6 pt-8 md:pt-12">
             <!-- Content 1 -->
-            <div
-              class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md"
-            >
+            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md">
               <div>
-                <svg
-                  class="stroke-color-purple"
-                  width="47"
-                  height="46"
-                  viewBox="0 0 47 46"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg class="stroke-color-purple" width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M32.0292 27.6V16.2917C32.0292 15.2375 31.1667 14.375 30.1125 14.375H24.5541"
                     stroke-width="3"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                  <path
-                    d="M27.4292 11.5L23.9792 14.375L27.4292 17.25"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M14.9708 19.55V27.6"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                  <path d="M27.4292 11.5L23.9792 14.375L27.4292 17.25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M14.9708 19.55V27.6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                   <path
                     d="M15.2584 18.975C17.3225 18.975 18.9959 17.3017 18.9959 15.2375C18.9959 13.1734 17.3225 11.5 15.2584 11.5C13.1942 11.5 11.5208 13.1734 11.5208 15.2375C11.5208 17.3017 13.1942 18.975 15.2584 18.975Z"
                     stroke-width="3"
@@ -384,34 +243,18 @@
                 </svg>
               </div>
               <div class="text-center md:text-start">
-                <h1 class="font-bold text-xl tracking-tight text-color-black">
-                  Extra Layers
-                </h1>
-                <p class="pt-2 text-color-text text-sm">
-                  Making your project more secure avoiding DDoS
-                </p>
+                <h1 class="font-bold text-xl tracking-tight text-color-black">Extra Layers</h1>
+                <p class="pt-2 text-color-text text-sm">Making your project more secure avoiding DDoS</p>
               </div>
               <div class="text-center md:text-start">
-                <a
-                  href=""
-                  class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300"
-                  >Learn More</a
-                >
+                <a href="" class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300">Learn More</a>
               </div>
             </div>
 
             <!-- Content 2 -->
-            <div
-              class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md"
-            >
+            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md">
               <div>
-                <svg
-                  width="47"
-                  height="46"
-                  viewBox="0 0 47 46"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M25.2633 4.33167L37.7408 11.0592C39.1975 11.845 39.1975 14.0875 37.7408 14.8733L25.2633 21.6008C24.1517 22.195 22.8483 22.195 21.7367 21.6008L9.25917 14.8733C7.80251 14.0875 7.80251 11.845 9.25917 11.0592L21.7367 4.33167C22.8483 3.73751 24.1517 3.73751 25.2633 4.33167Z"
                     stroke="#640EF1"
@@ -436,68 +279,29 @@
                 </svg>
               </div>
               <div class="text-center md:text-start">
-                <h1 class="font-bold text-xl tracking-tight text-color-black">
-                  Customizable
-                </h1>
-                <p class="pt-2 text-color-text text-sm">
-                  Only install what your business needs to grow
-                </p>
+                <h1 class="font-bold text-xl tracking-tight text-color-black">Customizable</h1>
+                <p class="pt-2 text-color-text text-sm">Only install what your business needs to grow</p>
               </div>
               <div class="text-center md:text-start">
-                <a
-                  href=""
-                  class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300"
-                  >Learn More</a
-                >
+                <a href="" class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300">Learn More</a>
               </div>
             </div>
 
             <!-- Content 3 -->
-            <div
-              class="flex flex-col gap-8 bg-color-black p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md relative"
-            >
-              <div
-                class="w-14 h-40 bg-white absolute top-4 right-14 -skew-x-[30deg] blur-2xl -z10 opacity-30 overflow-hidden rounded-full"
-              ></div>
+            <div class="flex flex-col gap-8 bg-color-black p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md relative">
+              <div class="w-14 h-40 bg-white absolute top-4 right-14 -skew-x-[30deg] blur-2xl -z10 opacity-30 overflow-hidden rounded-full"></div>
               <div>
-                <svg
-                  width="47"
-                  height="46"
-                  viewBox="0 0 47 46"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.6867 34.7875V30.82"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M23.5 34.7875V26.8525"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M33.3133 34.7875V22.8658"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
+                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13.6867 34.7875V30.82" stroke="white" stroke-width="3" stroke-linecap="round" />
+                  <path d="M23.5 34.7875V26.8525" stroke="white" stroke-width="3" stroke-linecap="round" />
+                  <path d="M33.3133 34.7875V22.8658" stroke="white" stroke-width="3" stroke-linecap="round" />
                   <path
                     d="M33.3133 11.2125L32.4317 12.2475C27.5442 17.9592 20.9892 22.0034 13.6867 23.8242"
                     stroke="white"
                     stroke-width="3"
                     stroke-linecap="round"
                   />
-                  <path
-                    d="M27.6975 11.2125H33.3133V16.8092"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                  <path d="M27.6975 11.2125H33.3133V16.8092" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                   <path
                     d="M17.75 42.1666H29.25C38.8333 42.1666 42.6667 38.3333 42.6667 28.75V17.25C42.6667 7.66665 38.8333 3.83331 29.25 3.83331H17.75C8.16667 3.83331 4.33334 7.66665 4.33334 17.25V28.75C4.33334 38.3333 8.16667 42.1666 17.75 42.1666Z"
                     stroke="white"
@@ -508,41 +312,19 @@
                 </svg>
               </div>
               <div class="text-center md:text-start">
-                <h1 class="font-bold text-xl tracking-tight text-white">
-                  AI Automation
-                </h1>
-                <p class="pt-2 text-sm text-[#8D90A8]">
-                  Decide the business flow based on latest reports
-                </p>
+                <h1 class="font-bold text-xl tracking-tight text-white">AI Automation</h1>
+                <p class="pt-2 text-sm text-[#8D90A8]">Decide the business flow based on latest reports</p>
               </div>
               <div class="text-center md:text-start">
-                <a
-                  href=""
-                  class="font-bold text-sm text-white hover:text-color-purple transition-colors duration-300"
-                  >Learn More</a
-                >
+                <a href="" class="font-bold text-sm text-white hover:text-color-purple transition-colors duration-300">Learn More</a>
               </div>
             </div>
 
             <!-- Content 4 -->
-            <div
-              class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md"
-            >
+            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md">
               <div>
-                <svg
-                  width="47"
-                  height="46"
-                  viewBox="0 0 47 46"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 11.9792V15.8125"
-                    stroke="#640EF1"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 11.9792V15.8125" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                   <path
                     d="M42.6667 23V17.25C42.6667 7.66665 38.8333 3.83331 29.25 3.83331H17.75C8.16668 3.83331 4.33334 7.66665 4.33334 17.25V28.75C4.33334 38.3333 8.16668 42.1666 17.75 42.1666H23.5"
                     stroke="#640EF1"
@@ -550,41 +332,11 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                  <path
-                    d="M19.6667 11.9792V15.8125"
-                    stroke="#640EF1"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M12 30.6667V34.5"
-                    stroke="#640EF1"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M19.6667 30.6667V34.5"
-                    stroke="#640EF1"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M27.3333 13.8958H35"
-                    stroke="#640EF1"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M4.33334 23H42.6667"
-                    stroke="#640EF1"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                  <path d="M19.6667 11.9792V15.8125" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12 30.6667V34.5" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M19.6667 30.6667V34.5" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M27.3333 13.8958H35" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M4.33334 23H42.6667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                   <path
                     d="M41.8233 38.9659C40.75 40.825 38.7375 42.0708 36.4375 42.0708C33.0067 42.0708 30.8983 38.6208 30.8983 38.6208M31.0325 32.7558C32.1058 30.8775 34.1183 29.6317 36.4375 29.6317C40.5967 29.6317 42.6667 33.0817 42.6667 33.0817M42.6667 29.2292V33.0625H38.8333M34.7316 38.6017H30.8983V42.1667"
                     stroke="#640EF1"
@@ -595,45 +347,22 @@
                 </svg>
               </div>
               <div class="text-center md:text-start">
-                <h1 class="font-bold text-xl tracking-tight text-color-black">
-                  Auto-Scaling
-                </h1>
-                <p class="pt-2 text-color-text text-sm">
-                  Have a long weekend without worrying any loss
-                </p>
+                <h1 class="font-bold text-xl tracking-tight text-color-black">Auto-Scaling</h1>
+                <p class="pt-2 text-color-text text-sm">Have a long weekend without worrying any loss</p>
               </div>
               <div class="text-center md:text-start">
-                <a
-                  href=""
-                  class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300"
-                  >Learn More</a
-                >
+                <a href="" class="font-bold text-sm text-color-purple hover:text-color-black transition-colors duration-300">Learn More</a>
               </div>
             </div>
           </div>
 
-          <div
-            class="flex flex-col lg:flex-row items-center lg:justify-between pt-20 md:pt-24"
-          >
+          <div class="flex flex-col lg:flex-row items-center lg:justify-between pt-20 md:pt-24">
             <div class="w-full lg:w-1/2 relative">
-              <div
-                class="w-[85%] md:w-[88%] lg:w-[70%] mx-auto overflow-hidden rounded-tr-[70px] rounded-b-[70px]"
-              >
-                <img
-                  src="img/features-images.png"
-                  alt=""
-                  class="w-full hover:scale-110 ease-in duration-500"
-                />
+              <div class="w-[85%] md:w-[88%] lg:w-[70%] mx-auto overflow-hidden rounded-tr-[70px] rounded-b-[70px]">
+                <img src="img/features-images.png" alt="" class="w-full hover:scale-110 ease-in duration-500" />
               </div>
-              <div
-                class="absolute top-0 right-0 lg:right-[60px] p-4 md:p-6 lg:p-4 bg-color-purple rounded-full"
-              >
-                <svg
-                  class="h-10 w-10 md:h-16 md:w-16 lg:h-12 lg:w-12"
-                  viewBox="0 0 47 47"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <div class="absolute top-0 right-0 lg:right-[60px] p-4 md:p-6 lg:p-4 bg-color-purple rounded-full">
+                <svg class="h-10 w-10 md:h-16 md:w-16 lg:h-12 lg:w-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M32.5083 36.8783H14.4917C13.6867 36.8783 12.7858 36.2458 12.5175 35.4791L4.5825 13.2841C3.45167 10.1025 4.77417 9.12498 7.49583 11.08L14.9708 16.4275C16.2167 17.29 17.635 16.8491 18.1717 15.45L21.545 6.46082C22.6183 3.58582 24.4008 3.58582 25.4742 6.46082L28.8475 15.45C29.3842 16.8491 30.8025 17.29 32.0292 16.4275L39.0442 11.425C42.0342 9.27831 43.4717 10.3708 42.245 13.84L34.5017 35.5175C34.2142 36.2458 33.3133 36.8783 32.5083 36.8783Z"
                     stroke="white"
@@ -641,64 +370,24 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
-                  <path
-                    d="M12.9583 42.6666H34.0417"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M18.7083 27.3334H28.2917"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                  <path d="M12.9583 42.6666H34.0417" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M18.7083 27.3334H28.2917" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
-              <div
-                class="absolute top-[15%] left-0 lg:left-8 py-6 px-4 bg-white shadow-lg rounded-3xl"
-              >
+              <div class="absolute top-[15%] left-0 lg:left-8 py-6 px-4 bg-white shadow-lg rounded-3xl">
                 <div class="flex flex-col items-center gap-4 md:gap-6">
                   <div>
-                    <svg
-                      class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11"
-                      viewBox="0 0 46 47"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.1867 35.2874V31.3199"
-                        stroke="#640EF1"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M23 35.2875V27.3525"
-                        stroke="#640EF1"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M32.8133 35.2875V23.3658"
-                        stroke="#640EF1"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                      />
+                    <svg class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.1867 35.2874V31.3199" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
+                      <path d="M23 35.2875V27.3525" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
+                      <path d="M32.8133 35.2875V23.3658" stroke="#640EF1" stroke-width="3" stroke-linecap="round" />
                       <path
                         d="M32.8133 11.7125L31.9317 12.7475C27.0442 18.4592 20.4892 22.5034 13.1867 24.3242"
                         stroke="#640EF1"
                         stroke-width="3"
                         stroke-linecap="round"
                       />
-                      <path
-                        d="M27.1975 11.7125H32.8133V17.3092"
-                        stroke="#640EF1"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
+                      <path d="M27.1975 11.7125H32.8133V17.3092" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                       <path
                         d="M17.25 42.6667H28.75C38.3333 42.6667 42.1667 38.8334 42.1667 29.25V17.75C42.1667 8.16671 38.3333 4.33337 28.75 4.33337H17.25C7.66668 4.33337 3.83334 8.16671 3.83334 17.75V29.25C3.83334 38.8334 7.66668 42.6667 17.25 42.6667Z"
                         stroke="#640EF1"
@@ -709,12 +398,8 @@
                     </svg>
                   </div>
                   <div>
-                    <h1 class="font-bold text-sm md:text-xl lg:text-lg">
-                      5/5 Growth
-                    </h1>
-                    <div
-                      class="flex gap-1 text-yellow-400 text-[10px] md:text-sm pt-1 justify-center"
-                    >
+                    <h1 class="font-bold text-sm md:text-xl lg:text-lg">5/5 Growth</h1>
+                    <div class="flex gap-1 text-yellow-400 text-[10px] md:text-sm pt-1 justify-center">
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
@@ -724,17 +409,10 @@
                   </div>
                 </div>
               </div>
-              <div
-                class="absolute bottom-[15%] right-0 lg:right-[40px] py-3 px-5 md:py-4 md:px-6 bg-white shadow-lg rounded-3xl"
-              >
+              <div class="absolute bottom-[15%] right-0 lg:right-[40px] py-3 px-5 md:py-4 md:px-6 bg-white shadow-lg rounded-3xl">
                 <div class="flex items-center gap-2 md:gap-4">
                   <div>
-                    <svg
-                      class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11"
-                      viewBox="0 0 47 47"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M16.7917 36.8591H15.8333C8.16668 36.8591 4.33334 34.9424 4.33334 25.3591V15.7758C4.33334 8.10909 8.16668 4.27576 15.8333 4.27576H31.1667C38.8333 4.27576 42.6667 8.10909 42.6667 15.7758V25.3591C42.6667 33.0258 38.8333 36.8591 31.1667 36.8591H30.2083C29.6142 36.8591 29.0392 37.1466 28.675 37.6258L25.8 41.4591C24.535 43.1458 22.465 43.1458 21.2 41.4591L18.325 37.6258C18.0183 37.2041 17.3283 36.8591 16.7917 36.8591Z"
                         stroke="#640EF1"
@@ -770,16 +448,8 @@
                     </svg>
                   </div>
                   <div>
-                    <h1
-                      class="text-color-black text-sm md:text-lg lg:text-base font-bold"
-                    >
-                      AI Automation
-                    </h1>
-                    <p
-                      class="pt-1 text-color-text text-xs md:text-base lg:text-sm"
-                    >
-                      Working Faster
-                    </p>
+                    <h1 class="text-color-black text-sm md:text-lg lg:text-base font-bold">AI Automation</h1>
+                    <p class="pt-1 text-color-text text-xs md:text-base lg:text-sm">Working Faster</p>
                   </div>
                 </div>
               </div>
@@ -787,33 +457,18 @@
 
             <div class="w-full pt-12 lg:pt-0 lg:w-1/2 lg:flex lg:justify-end">
               <div class="lg:w-[90%] text-center lg:text-start">
-                <h1
-                  class="font-Clash_Display font-bold leading-snug md:leading-[60px] text-3xl md:text-5xl"
-                >
-                  We Have Very Strong Ecosystem
-                </h1>
+                <h1 class="font-Clash_Display font-bold leading-snug md:leading-[60px] text-3xl md:text-5xl">We Have Very Strong Ecosystem</h1>
                 <p
                   class="text-color-text leading-relaxed pt-6 lg:pt-4 text-sm text-justify md:text-lg lg:text-start lg:text-base md:leading-[30px] lg:leading-[30px]"
                 >
-                  We provide a variety of servers to grow your users acquisition
-                  much user-friendly and boosting up sales.
+                  We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.
                 </p>
 
-                <div
-                  class="py-10 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:place-items-center md:space-y-0 lg:block lg:space-y-6"
-                >
+                <div class="py-10 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:place-items-center md:space-y-0 lg:block lg:space-y-6">
                   <!-- content 1 -->
-                  <div
-                    class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl"
-                  >
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
                     <div>
-                      <svg
-                        width="47"
-                        height="46"
-                        viewBox="0 0 47 46"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M17.6925 42.1667H29.1925C38.7758 42.1667 42.6092 38.3334 42.6092 28.75V17.25C42.6092 7.66671 38.7758 3.83337 29.1925 3.83337H17.6925C8.10917 3.83337 4.27583 7.66671 4.27583 17.25V28.75C4.27583 38.3334 8.10917 42.1667 17.6925 42.1667Z"
                           stroke="#640EF1"
@@ -837,17 +492,9 @@
                   </div>
 
                   <!-- content 2 -->
-                  <div
-                    class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl"
-                  >
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
                     <div>
-                      <svg
-                        width="47"
-                        height="46"
-                        viewBox="0 0 47 46"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M18.9 38.3333H28.1C35.7667 38.3333 38.8333 35.2666 38.8333 27.6V18.4C38.8333 10.7333 35.7667 7.66663 28.1 7.66663H18.9C11.2333 7.66663 8.16666 10.7333 8.16666 18.4V27.6C8.16666 35.2666 11.2333 38.3333 18.9 38.3333Z"
                           stroke="#640EF1"
@@ -862,90 +509,18 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                         />
-                        <path
-                          d="M15.8525 7.66671V3.83337"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M23.5 7.66671V3.83337"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M31.1667 7.66671V3.83337"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M38.8333 15.3334H42.6667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M38.8333 23H42.6667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M38.8333 30.6666H42.6667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M31.1667 38.3334V42.1667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M23.5192 38.3334V42.1667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M15.8525 38.3334V42.1667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M4.33334 15.3334H8.16667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M4.33334 23H8.16667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M4.33334 30.6666H8.16667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
+                        <path d="M15.8525 7.66671V3.83337" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M23.5 7.66671V3.83337" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M31.1667 7.66671V3.83337" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M38.8333 15.3334H42.6667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M38.8333 23H42.6667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M38.8333 30.6666H42.6667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M31.1667 38.3334V42.1667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M23.5192 38.3334V42.1667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15.8525 38.3334V42.1667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4.33334 15.3334H8.16667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4.33334 23H8.16667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4.33334 30.6666H8.16667" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                         <path
                           d="M23.5 18.5917L21.6983 21.735C21.2958 22.425 21.6217 23 22.4267 23H24.5733C25.3783 23 25.7042 23.575 25.3017 24.265L23.5 27.4083"
                           stroke="#640EF1"
@@ -962,17 +537,9 @@
                   </div>
 
                   <!-- content 3 -->
-                  <div
-                    class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl"
-                  >
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
                     <div>
-                      <svg
-                        width="47"
-                        height="46"
-                        viewBox="0 0 47 46"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M11.1183 21.3132C2.14827 21.9457 2.14827 34.9982 11.1183 35.6307H14.7984"
                           stroke="#640EF1"
@@ -997,13 +564,7 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                         />
-                        <path
-                          d="M20.51 31.6825L22.4075 33.58L26.49 29.8042"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
+                        <path d="M20.51 31.6825L22.4075 33.58L26.49 29.8042" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </div>
                     <div class="text-start">
@@ -1012,15 +573,11 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start pt-2 md:pt-4 lg:pt-0"
-                >
+                <div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start pt-2 md:pt-4 lg:pt-0">
                   <button class="btn-2">Explore More</button>
                   <div class="flex gap-1 items-center">
                     <img src="img/device-message.svg" alt="" />
-                    <p class="text-color-purple font-semibold">
-                      Schedule a Demo
-                    </p>
+                    <p class="text-color-purple font-semibold">Schedule a Demo</p>
                   </div>
                 </div>
               </div>
@@ -1035,16 +592,9 @@
         <div class="pt-2 md:pt-6 lg:pt-8 pb-16">
           <div class="container">
             <div class="text-center lg:w-[60%] mx-auto">
-              <h1
-                class="font-Clash_Display font-bold text-3xl md:text-4xl pb-6"
-              >
-                Our Showcase
-              </h1>
-              <p
-                class="text-sm md:text-base text-color-text leading-relaxed md:leading-[30px]"
-              >
-                They built amazing website to help more people around the world
-                by using our recommendation services and products
+              <h1 class="font-Clash_Display font-bold text-3xl md:text-4xl pb-6">Our Showcase</h1>
+              <p class="text-sm md:text-base text-color-text leading-relaxed md:leading-[30px]">
+                They built amazing website to help more people around the world by using our recommendation services and products
               </p>
             </div>
           </div>
@@ -1058,20 +608,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-1.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1081,20 +621,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-2.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1104,20 +634,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-3.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1127,20 +647,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-4.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1150,20 +660,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-1.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1173,20 +673,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-2.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1196,20 +686,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-3.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1219,20 +699,10 @@
                   <div
                     class="relative shadow-lg group p-2 border rounded-xl bg-white w-[290px] md:w-[320px] lg:w-[290px] h-[220px] hover:bg-color-purple transition-colors ease-in duration-500"
                   >
-                    <img
-                      src="img/showcase-4.png"
-                      alt=""
-                      class="w-full h-full object-fill"
-                    />
+                    <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
-                    <div
-                      class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500"
-                    >
-                      <button
-                        class="py-2 px-4 rounded-full bg-color-purple text-white"
-                      >
-                        View Details
-                      </button>
+                    <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
                     </div>
                   </div>
                 </div>
@@ -1246,34 +716,19 @@
       <!-- Section FAQ -->
       <section id="faq">
         <div class="container pt-2 md:pt-6 lg:pt-8 pb-16">
-          <h1
-            class="text-3xl md:text-4xl font-Clash_Display font-bold text-center"
-          >
-            Frequently Asked Questions
-          </h1>
+          <h1 class="text-3xl md:text-4xl font-Clash_Display font-bold text-center">Frequently Asked Questions</h1>
 
           <!-- Faq -->
           <div
             class="grid lg:grid-cols-2 lg:items-start gap-4 lg:gap-6 mt-8 text-sm md:text-base"
-            x-data="{ 
-            activeAccordion: '', 
-            setActiveAccordion(id) { 
-                this.activeAccordion = (this.activeAccordion == id) ? '' : id 
-            } 
-        }"
+            x-data="{ activeAccordion: '', setActiveAccordion(id) { this.activeAccordion = (this.activeAccordion == id) ? '' : id } }"
           >
             <!-- faq 1 -->
-            <div
-              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
-              x-data="{ id: $id('accordion') }"
-              @click="setActiveAccordion(id)"
-            >
+            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
-                  <h1 class="font-semibold text-color-black md:text-lg">
-                    Why do we need to use Kapp?
-                  </h1>
+                  <h1 class="font-semibold text-color-black md:text-lg">Why do we need to use Kapp?</h1>
                 </div>
                 <div class="w-[10%] flex justify-end">
                   <i
@@ -1284,44 +739,25 @@
               </div>
 
               <!-- Jawaban -->
-              <div
-                class="w-[90%]"
-                x-show="activeAccordion==id"
-                x-collapse
-                x-cloak
-                x-collapse.duration.500ms
-              >
-                <p
-                  class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm"
-                >
-                  Kapp is able to develop by themselve without removing the
-                  parents permission and lorem dolor si amet fully run network
-                  at 100% avoiding data-loss at any moments.
+              <div class="w-[90%]" x-show="activeAccordion==id" x-collapse x-cloak x-collapse.duration.500ms>
+                <p class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm">
+                  Kapp is able to develop by themselve without removing the parents permission and lorem dolor si amet fully run network at 100% avoiding
+                  data-loss at any moments.
                 </p>
 
                 <!-- learn more -->
                 <div class="pt-6">
-                  <a
-                    href=""
-                    class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300"
-                    >Learn More</a
-                  >
+                  <a href="" class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300">Learn More</a>
                 </div>
               </div>
             </div>
 
             <!-- faq 2 -->
-            <div
-              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
-              x-data="{ id: $id('accordion') }"
-              @click="setActiveAccordion(id)"
-            >
+            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
-                  <h1 class="font-semibold text-color-black md:text-lg">
-                    Do we need to pay 6 months per item?
-                  </h1>
+                  <h1 class="font-semibold text-color-black md:text-lg">Do we need to pay 6 months per item?</h1>
                 </div>
                 <div class="w-[10%] flex justify-end">
                   <i
@@ -1332,44 +768,25 @@
               </div>
 
               <!-- Jawaban -->
-              <div
-                class="w-[90%]"
-                x-show="activeAccordion==id"
-                x-collapse
-                x-cloak
-                x-collapse.duration.500ms
-              >
-                <p
-                  class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm"
-                >
-                  Kapp is able to develop by themselve without removing the
-                  parents permission and lorem dolor si amet fully run network
-                  at 100% avoiding data-loss at any moments.
+              <div class="w-[90%]" x-show="activeAccordion==id" x-collapse x-cloak x-collapse.duration.500ms>
+                <p class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm">
+                  Kapp is able to develop by themselve without removing the parents permission and lorem dolor si amet fully run network at 100% avoiding
+                  data-loss at any moments.
                 </p>
 
                 <!-- learn more -->
                 <div class="pt-6">
-                  <a
-                    href=""
-                    class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300"
-                    >Learn More</a
-                  >
+                  <a href="" class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300">Learn More</a>
                 </div>
               </div>
             </div>
 
             <!-- faq 3 -->
-            <div
-              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
-              x-data="{ id: $id('accordion') }"
-              @click="setActiveAccordion(id)"
-            >
+            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
-                  <h1 class="font-semibold text-color-black md:text-lg">
-                    How to migrate from other service?
-                  </h1>
+                  <h1 class="font-semibold text-color-black md:text-lg">How to migrate from other service?</h1>
                 </div>
                 <div class="w-[10%] flex justify-end">
                   <i
@@ -1380,44 +797,25 @@
               </div>
 
               <!-- Jawaban -->
-              <div
-                class="w-[90%]"
-                x-show="activeAccordion==id"
-                x-collapse
-                x-cloak
-                x-collapse.duration.500ms
-              >
-                <p
-                  class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm"
-                >
-                  Kapp is able to develop by themselve without removing the
-                  parents permission and lorem dolor si amet fully run network
-                  at 100% avoiding data-loss at any moments.
+              <div class="w-[90%]" x-show="activeAccordion==id" x-collapse x-cloak x-collapse.duration.500ms>
+                <p class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm">
+                  Kapp is able to develop by themselve without removing the parents permission and lorem dolor si amet fully run network at 100% avoiding
+                  data-loss at any moments.
                 </p>
 
                 <!-- learn more -->
                 <div class="pt-6">
-                  <a
-                    href=""
-                    class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300"
-                    >Learn More</a
-                  >
+                  <a href="" class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300">Learn More</a>
                 </div>
               </div>
             </div>
 
             <!-- faq 4 -->
-            <div
-              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
-              x-data="{ id: $id('accordion') }"
-              @click="setActiveAccordion(id)"
-            >
+            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
-                  <h1 class="font-semibold text-color-black md:text-lg">
-                    What if data doesn’t get stored?
-                  </h1>
+                  <h1 class="font-semibold text-color-black md:text-lg">What if data doesn’t get stored?</h1>
                 </div>
                 <div class="w-[10%] flex justify-end">
                   <i
@@ -1428,44 +826,25 @@
               </div>
 
               <!-- Jawaban -->
-              <div
-                class="w-[90%]"
-                x-show="activeAccordion==id"
-                x-collapse
-                x-cloak
-                x-collapse.duration.500ms
-              >
-                <p
-                  class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm"
-                >
-                  Kapp is able to develop by themselve without removing the
-                  parents permission and lorem dolor si amet fully run network
-                  at 100% avoiding data-loss at any moments.
+              <div class="w-[90%]" x-show="activeAccordion==id" x-collapse x-cloak x-collapse.duration.500ms>
+                <p class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm">
+                  Kapp is able to develop by themselve without removing the parents permission and lorem dolor si amet fully run network at 100% avoiding
+                  data-loss at any moments.
                 </p>
 
                 <!-- learn more -->
                 <div class="pt-6">
-                  <a
-                    href=""
-                    class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300"
-                    >Learn More</a
-                  >
+                  <a href="" class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300">Learn More</a>
                 </div>
               </div>
             </div>
 
             <!-- faq 5 -->
-            <div
-              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
-              x-data="{ id: $id('accordion') }"
-              @click="setActiveAccordion(id)"
-            >
+            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
-                  <h1 class="font-semibold text-color-black md:text-lg">
-                    Can we guarantee no any loss at all?
-                  </h1>
+                  <h1 class="font-semibold text-color-black md:text-lg">Can we guarantee no any loss at all?</h1>
                 </div>
                 <div class="w-[10%] flex justify-end">
                   <i
@@ -1476,28 +855,15 @@
               </div>
 
               <!-- Jawaban -->
-              <div
-                class="w-[90%]"
-                x-show="activeAccordion==id"
-                x-collapse
-                x-cloak
-                x-collapse.duration.500ms
-              >
-                <p
-                  class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm"
-                >
-                  Kapp is able to develop by themselve without removing the
-                  parents permission and lorem dolor si amet fully run network
-                  at 100% avoiding data-loss at any moments.
+              <div class="w-[90%]" x-show="activeAccordion==id" x-collapse x-cloak x-collapse.duration.500ms>
+                <p class="text-color-black leading-[20px] md:leading-[22px] lg:leading-[24px] pt-6 text-xs md:text-sm">
+                  Kapp is able to develop by themselve without removing the parents permission and lorem dolor si amet fully run network at 100% avoiding
+                  data-loss at any moments.
                 </p>
 
                 <!-- learn more -->
                 <div class="pt-6">
-                  <a
-                    href=""
-                    class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300"
-                    >Learn More</a
-                  >
+                  <a href="" class="text-color-purple font-semibold hover:text-color-black transition-colors duration-300">Learn More</a>
                 </div>
               </div>
             </div>
@@ -1508,13 +874,7 @@
                 <div class="w-[90%]">
                   <div class="flex gap-1 items-center">
                     <div>
-                      <svg
-                        width="25"
-                        height="24"
-                        viewBox="0 0 25 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M20.5 12.2V13.9C20.5 17.05 18.7 18.4 16 18.4H7C4.3 18.4 2.5 17.05 2.5 13.9V8.5C2.5 5.35 4.3 4 7 4H9.7C9.57 4.38 9.5 4.8 9.5 5.25V9.15002C9.5 10.12 9.82 10.94 10.39 11.51C10.96 12.08 11.78 12.4 12.75 12.4V13.79C12.75 14.3 13.33 14.61 13.76 14.33L16.65 12.4H19.25C19.7 12.4 20.12 12.33 20.5 12.2Z"
                           stroke="white"
@@ -1531,56 +891,20 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                         />
-                        <path
-                          d="M7.9 22H15.1"
-                          stroke="white"
-                          stroke-width="2"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M11.5 18.3999V21.9999"
-                          stroke="white"
-                          stroke-width="2"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M18.9955 7.25H19.0045"
-                          stroke="white"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M16.1957 7.25H16.2047"
-                          stroke="white"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M13.3954 7.25H13.4044"
-                          stroke="white"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
+                        <path d="M7.9 22H15.1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M11.5 18.3999V21.9999" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18.9955 7.25H19.0045" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16.1957 7.25H16.2047" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M13.3954 7.25H13.4044" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </div>
                     <div>
-                      <h1 class="font-semibold text-white text-xs md:text-sm">
-                        Send e-mail to us for other questions
-                      </h1>
+                      <h1 class="font-semibold text-white text-xs md:text-sm">Send e-mail to us for other questions</h1>
                     </div>
                   </div>
                 </div>
                 <div class="w-[10%] flex justify-end">
-                  <i
-                    class="fa-solid fa-chevron-right py-2 px-[11px] rounded-full bg-white text-color-black"
-                  ></i>
+                  <i class="fa-solid fa-chevron-right py-2 px-[11px] rounded-full bg-white text-color-black"></i>
                 </div>
               </div>
             </div>
@@ -1592,86 +916,32 @@
       <!-- Section CTA Call to action -->
       <section id="cta" class="">
         <div class="container relative z-20">
-          <div
-            class="bg-[#640EF1] py-12 md:py-16 lg:py-12 px-[10px] md:px-[20px] lg:px-[30px] rounded-3xl md:rounded-[48px] lg:rounded-[32px]"
-          >
+          <div class="bg-[#640EF1] py-12 md:py-16 lg:py-12 px-[10px] md:px-[20px] lg:px-[30px] rounded-3xl md:rounded-[48px] lg:rounded-[32px]">
             <div class="flex flex-col lg:flex-row items-center gap-6">
               <!-- Bagian Kiri -->
               <div class="lg:w-1/2">
                 <div class="flex justify-center lg:block">
-                  <div
-                    class="inline-block bg-white py-2 px-3 rounded-full mx-auto"
-                  >
+                  <div class="inline-block bg-white py-2 px-3 rounded-full mx-auto">
                     <div class="flex items-center gap-[5px] md:gap-2">
-                      <svg
-                        class="w-5 h-5 md:w-6 md:h-6"
-                        viewBox="0 0 25 25"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12.5 22.5C18.0228 22.5 22.5 18.0228 22.5 12.5C22.5 6.97715 18.0228 2.5 12.5 2.5C6.97715 2.5 2.5 6.97715 2.5 12.5C2.5 18.0228 6.97715 22.5 12.5 22.5Z"
-                          stroke="#080C2E"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M8.50001 3.5H9.50001C7.55001 9.34 7.55001 15.66 9.50001 21.5H8.50001"
-                          stroke="#080C2E"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M15.5 3.5C17.45 9.34 17.45 15.66 15.5 21.5"
-                          stroke="#080C2E"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M3.5 16.5V15.5C9.34 17.45 15.66 17.45 21.5 15.5V16.5"
-                          stroke="#080C2E"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M3.5 9.5001C9.34 7.5501 15.66 7.5501 21.5 9.5001"
-                          stroke="#080C2E"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <div class="w-[20px] h-[20px] md:w-[24px] md:h-[24px]">
+                        <img src="img/global.png" alt="" class="w-full h-full" />
+                      </div>
 
-                      <p
-                        class="text-[11px] md:text-base font-semibold md:tracking-wide"
-                      >
-                        We host more than 120,000 websites
-                      </p>
+                      <p class="text-[11px] md:text-base font-semibold md:tracking-wide">We host more than 120,000 websites</p>
                     </div>
                   </div>
                 </div>
                 <!-- text -->
                 <div class="py-6 md:py-8 text-center lg:text-start">
-                  <h1
-                    class="text-white font-Clash_Display text-2xl md:text-5xl font-semibold"
-                  >
-                    Start Growing Today
-                  </h1>
+                  <h1 class="text-white font-Clash_Display text-2xl md:text-5xl font-semibold">Start Growing Today</h1>
                   <p
                     class="pt-2 md:pt-4 text-white text-xs md:text-base lg:text-sm leading-relaxed md:leading-[30px] lg:leading-[30px] w-[90%] mx-auto lg:mx-0"
                   >
-                    We provide a variety of servers to grow your users
-                    acquisition much user-friendly and boosting up sales.
+                    We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.
                   </p>
                 </div>
                 <!-- button -->
-                <div
-                  class="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6 pt-2 md:pt-4"
-                >
+                <div class="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6 pt-2 md:pt-4">
                   <button
                     class="bg-[#FFD15A] py-3 px-8 md:py-4 md:px-10 rounded-full font-bold text-color-black hover:outline-none hover:bg-transparent hover:ring hover:ring-[#ffD15A] hover:text-white transition-colors ease duration-300"
                   >
@@ -1679,13 +949,7 @@
                   </button>
 
                   <div class="flex gap-1 items-center">
-                    <svg
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M20.5 12.2V13.9C20.5 17.05 18.7 18.4 16 18.4H7C4.3 18.4 2.5 17.05 2.5 13.9V8.5C2.5 5.35 4.3 4 7 4H9.7C9.57 4.38 9.5 4.8 9.5 5.25V9.15002C9.5 10.12 9.82 10.94 10.39 11.51C10.96 12.08 11.78 12.4 12.75 12.4V13.79C12.75 14.3 13.33 14.61 13.76 14.33L16.65 12.4H19.25C19.7 12.4 20.12 12.33 20.5 12.2Z"
                         stroke="white"
@@ -1702,43 +966,11 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       />
-                      <path
-                        d="M7.89999 22H15.1"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M11.5 18.3999V21.9999"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-miterlimit="10"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M18.9955 7.25H19.0045"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M16.1957 7.25H16.2047"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M13.3954 7.25H13.4044"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
+                      <path d="M7.89999 22H15.1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M11.5 18.3999V21.9999" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M18.9955 7.25H19.0045" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M16.1957 7.25H16.2047" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M13.3954 7.25H13.4044" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
                     <p class="text-white font-semibold">Schedule a Demo</p>
@@ -1749,391 +981,64 @@
               <!-- Bagian Kanan -->
               <div class="lg:w-1/2">
                 <!-- Content -->
-                <div
-                  class="grid grid-cols-2 md:grid-cols-3 place-items-center gap-6 pt-8 md:pt-10 lg:pt-0"
-                >
+                <div class="grid grid-cols-2 md:grid-cols-3 place-items-center gap-6 pt-8 md:pt-10 lg:pt-0">
                   <!-- Content 1 -->
-                  <div
-                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
-                  >
+                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
                     <div>
-                      <svg
-                        width="47"
-                        height="46"
-                        viewBox="0 0 47 46"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M18.0833 42.1666H29.5833C39.1667 42.1666 43 38.3333 43 28.7499V17.2499C43 7.66659 39.1667 3.83325 29.5833 3.83325H18.0833C8.50001 3.83325 4.66667 7.66659 4.66667 17.2499V28.7499C4.66667 38.3333 8.50001 42.1666 18.0833 42.1666Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M19.2333 17.1924L14.4608 21.9649C13.905 22.5207 13.905 23.4599 14.4608 24.0157L19.2333 28.7882"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M28.4333 17.1924L33.2058 21.9649C33.7617 22.5207 33.7617 23.4599 33.2058 24.0157L28.4333 28.7882"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <img src="img/scroll.svg" alt="" class="" />
                     </div>
                     <div class="text-center md:text-start">
-                      <h1 class="font-bold tracking-tight text-color-black">
-                        Web Crawl
-                      </h1>
+                      <h1 class="font-bold tracking-tight text-color-black">Web Crawl</h1>
                     </div>
                   </div>
-
                   <!-- Content 2 -->
-                  <div
-                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
-                  >
+                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
                     <div>
-                      <svg
-                        width="47"
-                        height="46"
-                        viewBox="0 0 47 46"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M18.9 38.3334H28.1C35.7667 38.3334 38.8333 35.2667 38.8333 27.6001V18.4001C38.8333 10.7334 35.7667 7.66675 28.1 7.66675H18.9C11.2333 7.66675 8.16666 10.7334 8.16666 18.4001V27.6001C8.16666 35.2667 11.2333 38.3334 18.9 38.3334Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M20.625 32.5834H26.375C31.1667 32.5834 33.0833 30.6667 33.0833 25.8751V20.1251C33.0833 15.3334 31.1667 13.4167 26.375 13.4167H20.625C15.8333 13.4167 13.9167 15.3334 13.9167 20.1251V25.8751C13.9167 30.6667 15.8333 32.5834 20.625 32.5834Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M15.8525 7.66659V3.83325"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M23.5 7.66659V3.83325"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M31.1667 7.66659V3.83325"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M38.8333 15.3333H42.6667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M38.8333 23H42.6667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M38.8333 30.6667H42.6667"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M31.1667 38.3333V42.1666"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M23.5192 38.3333V42.1666"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M15.8525 38.3333V42.1666"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M4.33334 15.3333H8.16668"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M4.33334 23H8.16668"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M4.33334 30.6667H8.16668"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M23.5 18.5916L21.6983 21.7349C21.2958 22.4249 21.6217 22.9999 22.4267 22.9999H24.5733C25.3783 22.9999 25.7042 23.5749 25.3017 24.2649L23.5 27.4082"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <img src="img/cpu-charge.svg" alt="" />
                     </div>
                     <div class="text-center md:text-start">
-                      <h1 class="font-bold tracking-tight text-color-black">
-                        Fast Report
-                      </h1>
+                      <h1 class="font-bold tracking-tight text-color-black">Fast Report</h1>
                     </div>
                   </div>
 
                   <!-- Content 3 -->
-                  <div
-                    class="flex flex-col gap-8 bg-color-black py-6 px-4 md:py-10 md:px-6 rounded-3xl justify-center items-center relative w-full"
-                  >
-                    <div
-                      class="w-24 h-24 bg-white absolute top-3 right-4 -skew-x-[30deg] blur-xl -z10 opacity-30 overflow-hidden rounded-full"
-                    ></div>
+                  <div class="flex flex-col gap-8 bg-color-black py-6 px-4 md:py-10 md:px-6 rounded-3xl justify-center items-center relative w-full">
+                    <div class="w-24 h-24 bg-white absolute top-3 right-4 -skew-x-[30deg] blur-xl -z10 opacity-30 overflow-hidden rounded-full"></div>
                     <div>
-                      <svg
-                        width="47"
-                        height="47"
-                        viewBox="0 0 47 47"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20.2724 5.02424L10.7083 8.6084C8.50411 9.43256 6.70245 12.0392 6.70245 14.3967V28.6375C6.70245 30.8992 8.19747 33.87 10.0183 35.2309L18.26 41.3834C20.9625 43.4151 25.4091 43.4151 28.1116 41.3834L36.3533 35.2309C38.1741 33.87 39.6691 30.8992 39.6691 28.6375V14.3967C39.6691 12.0392 37.8674 9.43256 35.6633 8.6084L26.0991 5.02424C24.4699 4.43007 21.8633 4.43007 20.2724 5.02424Z"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M23.1666 21.6801C23.09 21.6801 22.9941 21.6801 22.9175 21.6801C21.1158 21.6226 19.6783 20.1275 19.6783 18.3067C19.6783 16.4475 21.1925 14.9333 23.0516 14.9333C24.9108 14.9333 26.425 16.4475 26.425 18.3067C26.4058 20.1467 24.9683 21.6226 23.1666 21.6801Z"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M19.3525 27.0467C17.5125 28.2734 17.5125 30.2858 19.3525 31.5125C21.4416 32.9117 24.8725 32.9117 26.9616 31.5125C28.8016 30.2858 28.8016 28.2734 26.9616 27.0467C24.8916 25.6475 21.4608 25.6475 19.3525 27.0467Z"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <img src="img/security-user.svg" alt="" />
                     </div>
                     <div class="text-center md:text-start">
-                      <h1 class="font-bold tracking-tight text-white">
-                        Anti-DDoS
-                      </h1>
+                      <h1 class="font-bold tracking-tight text-white">Anti-DDoS</h1>
                     </div>
                   </div>
 
                   <!-- Content 4 -->
-                  <div
-                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
-                  >
+                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
                     <div>
-                      <svg
-                        width="47"
-                        height="47"
-                        viewBox="0 0 47 47"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14.02 35.2876V31.3201"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                        />
-                        <path
-                          d="M23.8333 35.2875V27.3525"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                        />
-                        <path
-                          d="M33.6467 35.2874V23.3657"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                        />
-                        <path
-                          d="M33.6467 11.7124L32.765 12.7474C27.8775 18.4591 21.3225 22.5032 14.02 24.3241"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                        />
-                        <path
-                          d="M28.0308 11.7124H33.6467V17.3091"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M18.0833 42.6666H29.5833C39.1667 42.6666 43 38.8333 43 29.2499V17.7499C43 8.16659 39.1667 4.33325 29.5833 4.33325H18.0833C8.50001 4.33325 4.66667 8.16659 4.66667 17.7499V29.2499C4.66667 38.8333 8.50001 42.6666 18.0833 42.6666Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <img src="img/status-up.svg" alt="" />
                     </div>
                     <div class="text-center md:text-start">
-                      <h1 class="font-bold tracking-tight text-color-black">
-                        Auto Scale
-                      </h1>
+                      <h1 class="font-bold tracking-tight text-color-black">Auto Scale</h1>
                     </div>
                   </div>
 
                   <!-- Content 5 -->
-                  <div
-                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
-                  >
+                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
                     <div>
-                      <svg
-                        width="47"
-                        height="47"
-                        viewBox="0 0 47 47"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12.9583 42.6667V29.25"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M12.9583 10.0833V4.33325"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M34.0417 42.6667V36.9167"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M34.0417 17.7499V4.33325"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M18.7083 13.9166V25.4166C18.7083 27.5249 17.75 29.2499 14.875 29.2499H11.0417C8.16668 29.2499 7.20834 27.5249 7.20834 25.4166V13.9166C7.20834 11.8083 8.16668 10.0833 11.0417 10.0833H14.875C17.75 10.0833 18.7083 11.8083 18.7083 13.9166Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M39.7917 21.5833V33.0833C39.7917 35.1917 38.8333 36.9167 35.9583 36.9167H32.125C29.25 36.9167 28.2917 35.1917 28.2917 33.0833V21.5833C28.2917 19.475 29.25 17.75 32.125 17.75H35.9583C38.8333 17.75 39.7917 19.475 39.7917 21.5833Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-miterlimit="10"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <img src="img/candle.svg" alt="" />
                     </div>
                     <div class="text-center md:text-start">
-                      <h1 class="font-bold tracking-tight text-color-black">
-                        AI Perform
-                      </h1>
+                      <h1 class="font-bold tracking-tight text-color-black">AI Perform</h1>
                     </div>
                   </div>
 
                   <!-- Content 6 -->
-                  <div
-                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
-                  >
+                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
                     <div>
-                      <svg
-                        width="47"
-                        height="47"
-                        viewBox="0 0 47 47"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M32.175 36.8784H14.1583C13.3533 36.8784 12.4525 36.2459 12.1841 35.4793L4.24914 13.2843C3.11831 10.1026 4.44081 9.1251 7.16247 11.0801L14.6375 16.4276C15.8833 17.2901 17.3016 16.8493 17.8383 15.4501L21.2116 6.46094C22.285 3.58594 24.0675 3.58594 25.1408 6.46094L28.5141 15.4501C29.0508 16.8493 30.4691 17.2901 31.6958 16.4276L38.7108 11.4251C41.7008 9.27844 43.1383 10.3709 41.9116 13.8401L34.1683 35.5176C33.8808 36.2459 32.98 36.8784 32.175 36.8784Z"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M12.625 42.6667H33.7083"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M18.375 27.3333H27.9583"
-                          stroke="#640EF1"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <img src="img/crown.svg" alt="" />
                     </div>
                     <div class="text-center md:text-start">
-                      <h1 class="font-bold tracking-tight text-color-black">
-                        Top Plugin+
-                      </h1>
+                      <h1 class="font-bold tracking-tight text-color-black">Top Plugin+</h1>
                     </div>
                   </div>
                 </div>
@@ -2145,27 +1050,19 @@
       <!-- End Section CTA -->
 
       <!-- footer section -->
-      <div
-        id="footer"
-        class="bg-color-black -mt-[450px] lg:-mt-60 pt-[450px] lg:pt-60"
-      >
+      <div id="footer" class="bg-color-black -mt-[450px] lg:-mt-60 pt-[450px] lg:pt-60">
         <div class="pt-16 pb-6 container">
           <div class="flex flex-col lg:flex-row items-center lg:items-start">
             <!-- content 1 -->
-            <div
-              class="flex flex-col w-full md:w-[60%] lg:w-[30%] md:justify-center md:items-center lg:justify-normal lg:items-start gap-6 pb-12 lg:pb-0"
-            >
+            <div class="flex flex-col w-full md:w-[60%] lg:w-[30%] md:justify-center md:items-center lg:justify-normal lg:items-start gap-6 pb-12 lg:pb-0">
               <div class="flex items-center gap-1">
                 <div>
                   <img src="img/logo-dark.png" alt="" />
                 </div>
                 <h1 class="text-white text-2xl font-bold">weserve.</h1>
               </div>
-              <p
-                class="text-[#8D90A8] leading-relaxed text-sm md:text-center lg:text-start"
-              >
-                We host your empire business today using the latest
-                technologies.
+              <p class="text-[#8D90A8] leading-relaxed text-sm md:text-center lg:text-start">
+                We host your empire business today using the latest technologies.
               </p>
               <div class="flex items-center gap-4">
                 <a href=""><img src="img/footer-message.png" alt="" /></a>
@@ -2176,9 +1073,7 @@
             </div>
 
             <!-- Content 2 -->
-            <div
-              class="flex items-center justify-between w-full lg:w-[50%] lg:mx-auto flex-wrap gap-y-12 md:gap-y-0"
-            >
+            <div class="flex items-center justify-between w-full lg:w-[50%] lg:mx-auto flex-wrap gap-y-12 md:gap-y-0">
               <div class="space-y-6">
                 <h1 class="text-white text-xl font-bold">Product</h1>
                 <div class="flex flex-col gap-4">
@@ -2195,9 +1090,7 @@
                 <div class="flex flex-col gap-4">
                   <a href="" class="text-sm text-[#8D90A8]">Support 24/7</a>
                   <a href="" class="text-sm text-[#8D90A8]">Help Center</a>
-                  <a href="" class="text-sm text-[#8D90A8]"
-                    >How-to Instructions</a
-                  >
+                  <a href="" class="text-sm text-[#8D90A8]">How-to Instructions</a>
                   <a href="" class="text-sm text-[#8D90A8]">Blog & Tips</a>
                   <a href="" class="text-sm text-[#8D90A8]">About Us</a>
                 </div>
@@ -2206,15 +1099,9 @@
               <div class="space-y-6">
                 <h1 class="text-white text-xl font-bold">Company</h1>
                 <div class="flex flex-col gap-4">
-                  <a href="" class="text-sm text-[#8D90A8]"
-                    >Privacy and Policy</a
-                  >
-                  <a href="" class="text-sm text-[#8D90A8]"
-                    >Terms and Conditions</a
-                  >
-                  <a href="" class="text-sm text-[#8D90A8]"
-                    >Investor Relations</a
-                  >
+                  <a href="" class="text-sm text-[#8D90A8]">Privacy and Policy</a>
+                  <a href="" class="text-sm text-[#8D90A8]">Terms and Conditions</a>
+                  <a href="" class="text-sm text-[#8D90A8]">Investor Relations</a>
                   <a href="" class="text-sm text-[#8D90A8]">Join With Us</a>
                   <a href="" class="text-sm text-[#8D90A8]">Our Statistics</a>
                 </div>
@@ -2222,14 +1109,60 @@
             </div>
           </div>
 
-          <h1 class="text-center text-[#8D90A8] pt-16">
-            All Rights Reserved • &copy; Weserve by YudaAradea 2024
-          </h1>
+          <h1 class="text-center text-[#8D90A8] pt-16">All Rights Reserved • &copy; Weserve by YudaAradea 2024</h1>
         </div>
       </div>
 
       <!-- End Footer -->
     </main>
+
+    <!-- Modal Menu Mobile -->
+    <!-- Nav Link Mobile -->
+    <div
+      class="overflow-auto bg-black/80"
+      :class="{ 'fixed h-[100vh] w-full bottom-0 right-0 left-0 z-50 flex items-center justify-center': modalMenu }"
+      x-show="modalMenu"
+      x-transition:enter="transition ease duration-700 transform"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="overflow-auto h-[70vh] w-full bottom-0 fixed right-0 left-0 z-[100] lg:hidden bg-color-body rounded-t-[40px] shadow-lg"
+        aria-labelledby="modal-title"
+        x-cloak
+        x-show="modalMenu"
+        x-transition:enter="transition ease duration-700 transform"
+        x-transition:enter-start="opacity-0 translate-y-full"
+        x-transition:enter-end="opacity-100 -translate-y-0"
+        x-transition:leave="transition ease duration-700 transform"
+        x-transition:leave-start="opacity-100 -translate-y-0"
+        x-transition:leave-end="opacity-0 translate-y-full"
+      >
+        <!-- Close modal -->
+        <div class="text-2xl flex justify-end container pt-8" x-cloak="" @click="modalMenu = false; $dispatch('body-scroll', {})">
+          <i class="fa-solid fa-xmark text-color-black"></i>
+        </div>
+
+        <!-- Navlink -->
+        <ul class="h-[55vh] flex flex-col justify-between items-center pt-8 text-color-black">
+          <li>
+            <a href="" class="transition-colors ease-in duration-200">Products</a>
+          </li>
+          <li>
+            <a href="" class="transition-colors ease-in duration-200">Services</a>
+          </li>
+          <li>
+            <a href="" class="transition-colors ease-in duration-200">Pricing</a>
+          </li>
+          <li>
+            <a href="" class="transition-colors ease-in duration-200">Testimonials</a>
+          </li>
+          <li>
+            <a href="" class="transition-colors ease-in duration-200">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Swiperjs -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
