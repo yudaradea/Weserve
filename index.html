@@ -34,8 +34,8 @@
   </head>
   <body
     class="bg-color-body font-poppins"
-    x-data="{ scroll: false, modalMenu: false }"
-    @body-scroll="document.body.style.overflowY = modalMenu ? 'hidden' : ''"
+    x-data="{ scroll: false, modalMenu: false, modalShowcase: false }"
+    @body-scroll="document.body.style.overflowY = modalMenu || modalShowcase == 1 || modalShowcase == 2 || modalShowcase == 3 || modalShowcase == 4 ? 'hidden' : ''"
   >
     <!-- Header -->
     <header
@@ -44,7 +44,7 @@
       :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }"
     >
       <nav class="container py-6 flex justify-between items-center">
-        <div>
+        <div data-aos="fade-right" data-aos-duration="1000">
           <!-- Logo -->
           <a href="#home" class="flex items-center gap-1">
             <img src="img/logo-64.svg" alt="" />
@@ -611,7 +611,9 @@
                     <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 1; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -624,7 +626,9 @@
                     <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 2; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -637,7 +641,9 @@
                     <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 3; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -650,7 +656,9 @@
                     <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 4; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -663,7 +671,9 @@
                     <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 1; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -676,7 +686,9 @@
                     <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 2; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -689,7 +701,9 @@
                     <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 3; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -702,7 +716,9 @@
                     <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill" />
                     <!-- Buton hover -->
                     <div class="absolute grid place-items-center left-0 right-0 -bottom-20 group-hover:bottom-1/4 ease-in duration-500">
-                      <button class="py-2 px-4 rounded-full bg-color-purple text-white">View Details</button>
+                      <button class="py-2 px-4 rounded-full bg-color-purple text-white" @click="modalShowcase = 4; $dispatch('body-scroll', {})">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1119,7 +1135,7 @@
     <!-- Modal Menu Mobile -->
     <!-- Nav Link Mobile -->
     <div
-      class="overflow-auto bg-black/80"
+      class="overflow-auto transition-opacity bg-gray-500 bg-opacity-40"
       :class="{ 'fixed h-[100vh] w-full bottom-0 right-0 left-0 z-50 flex items-center justify-center': modalMenu }"
       x-show="modalMenu"
       x-transition:enter="transition ease duration-700 transform"
@@ -1163,6 +1179,347 @@
         </ul>
       </div>
     </div>
+    <!-- End Modal Menu -->
+
+    <!-- Modal Showcase 1  -->
+    <div x-show="modalShowcase == 1" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center h-screen px-4 md:p-0 relative">
+        <div
+          x-cloak
+          @click="modalShowcase = false; $dispatch('body-scroll', {})"
+          x-show="modalShowcase == 1"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          x-cloak
+          x-show="modalShowcase == 1"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+        >
+          <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
+            <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill rounded-3xl" />
+            <div class="absolute top-3 right-2 text-xl text-white cursor-pointer shadow-2xl" @click="modalShowcase=false; $dispatch('body-scroll', {})">
+              <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
+            </div>
+          </div>
+          <div class="pt-8 pb-12 px-2 md:px-6">
+            <div class="flex flex-col gap-2 items-center justify-center">
+              <h1 class="text-color-black font-semibold md:text-xl">Aplikasi Keungan "UangKu"</h1>
+              <p class="text-xs text-color-black tracking-widest">16/04/2023</p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Deskripsi :</p>
+              <p class="text-xs text-color-black leading-relaxed text-justify pt-2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae fugit eligendi tenetur magnam nobis vero deserunt iure sint rem voluptate!
+              </p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Teknologi :</p>
+              <div class="flex items-center gap-2 pt-2">
+                <div class="flex items-center gap-1 bg-red-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-laravel font-semibold"></i>
+                  <p>Laravel</p>
+                </div>
+                <div class="flex items-center gap-1 bg-[#61DBFB] text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-react font-semibold"></i>
+                  <p>React Js</p>
+                </div>
+                <div class="flex items-center gap-1 bg-yellow-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-solid fa-database font-semibold"></i>
+                  <p>MySql</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Link Project :</p>
+              <div class="pt-2 flex items-center gap-2">
+                <a href="https://github.com" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-black text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-brands fa-github font-semibold"></i>
+                    <p>Github</p>
+                  </div>
+                </a>
+                <a href="https://banking-app.maleskerja.my.id" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-purple text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-solid fa-globe font-semibold"></i>
+                    <p>Website</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Showcase  -->
+
+    <!-- Modal Showcase 2  -->
+    <div x-show="modalShowcase == 2" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center h-screen px-4 md:p-0 relative">
+        <div
+          x-cloak
+          @click="modalShowcase = false; $dispatch('body-scroll', {})"
+          x-show="modalShowcase == 2"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          x-cloak
+          x-show="modalShowcase == 2"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+        >
+          <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
+            <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill rounded-3xl" />
+            <div class="absolute top-3 right-2 text-xl text-white cursor-pointer shadow-2xl" @click="modalShowcase=false; $dispatch('body-scroll', {})">
+              <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
+            </div>
+          </div>
+          <div class="pt-8 pb-12 px-2 md:px-6">
+            <div class="flex flex-col gap-2 items-center justify-center">
+              <h1 class="text-color-black font-semibold md:text-xl">Website Freelancer "Gawe"</h1>
+              <p class="text-xs text-color-black tracking-widest">12/01/2024</p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Deskripsi :</p>
+              <p class="text-xs text-color-black leading-relaxed text-justify pt-2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae fugit eligendi tenetur magnam nobis vero deserunt iure sint rem voluptate!
+              </p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Teknologi :</p>
+              <div class="flex items-center gap-2 pt-2">
+                <div class="flex items-center gap-1 bg-red-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-laravel font-semibold"></i>
+                  <p>Laravel</p>
+                </div>
+                <div class="flex items-center gap-1 bg-[#61DBFB] text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-react font-semibold"></i>
+                  <p>React Js</p>
+                </div>
+                <div class="flex items-center gap-1 bg-yellow-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-solid fa-database font-semibold"></i>
+                  <p>MySql</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Link Project :</p>
+              <div class="pt-2 flex items-center gap-2">
+                <a href="https://github.com" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-black text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-brands fa-github font-semibold"></i>
+                    <p>Github</p>
+                  </div>
+                </a>
+                <a href="https://banking-app.maleskerja.my.id" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-purple text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-solid fa-globe font-semibold"></i>
+                    <p>Website</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Showcase  -->
+
+    <!-- Modal Showcase 3  -->
+    <div x-show="modalShowcase == 3" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center h-screen px-4 md:p-0 relative">
+        <div
+          x-cloak
+          @click="modalShowcase = false; $dispatch('body-scroll', {})"
+          x-show="modalShowcase == 3"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          x-cloak
+          x-show="modalShowcase == 3"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+        >
+          <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
+            <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill rounded-3xl" />
+            <div class="absolute top-3 right-2 text-xl text-white cursor-pointer shadow-2xl" @click="modalShowcase=false; $dispatch('body-scroll', {})">
+              <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
+            </div>
+          </div>
+          <div class="pt-8 pb-12 px-2 md:px-6">
+            <div class="flex flex-col gap-2 items-center justify-center">
+              <h1 class="text-color-black font-semibold md:text-xl">Website Belajar Online "YukBelajar"</h1>
+              <p class="text-xs text-color-black tracking-widest">04/04/2024</p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Deskripsi :</p>
+              <p class="text-xs text-color-black leading-relaxed text-justify pt-2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae fugit eligendi tenetur magnam nobis vero deserunt iure sint rem voluptate!
+              </p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Teknologi :</p>
+              <div class="flex items-center gap-2 pt-2">
+                <div class="flex items-center gap-1 bg-red-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-laravel font-semibold"></i>
+                  <p>Laravel</p>
+                </div>
+                <div class="flex items-center gap-1 bg-[#61DBFB] text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-react font-semibold"></i>
+                  <p>React Js</p>
+                </div>
+                <div class="flex items-center gap-1 bg-yellow-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-solid fa-database font-semibold"></i>
+                  <p>MySql</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Link Project :</p>
+              <div class="pt-2 flex items-center gap-2">
+                <a href="https://github.com" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-black text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-brands fa-github font-semibold"></i>
+                    <p>Github</p>
+                  </div>
+                </a>
+                <a href="https://banking-app.maleskerja.my.id" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-purple text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-solid fa-globe font-semibold"></i>
+                    <p>Website</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Showcase  -->
+
+    <!-- Modal Showcase 4  -->
+    <div x-show="modalShowcase == 4" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-center h-screen px-4 md:p-0 relative">
+        <div
+          x-cloak
+          @click="modalShowcase = false; $dispatch('body-scroll', {})"
+          x-show="modalShowcase == 4"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          x-cloak
+          x-show="modalShowcase == 4"
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave="transition ease-in duration-200 transform"
+          x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+          x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+        >
+          <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
+            <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill rounded-3xl" />
+            <div class="absolute top-3 right-2 text-xl text-white cursor-pointer shadow-2xl" @click="modalShowcase=false; $dispatch('body-scroll', {})">
+              <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
+            </div>
+          </div>
+          <div class="pt-8 pb-12 px-2 md:px-6">
+            <div class="flex flex-col gap-2 items-center justify-center">
+              <h1 class="text-color-black font-semibold md:text-xl">Aplikasi Kesehatan "YogaKuy"</h1>
+              <p class="text-xs text-color-black tracking-widest">05/04/2024</p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Deskripsi :</p>
+              <p class="text-xs text-color-black leading-relaxed text-justify pt-2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae fugit eligendi tenetur magnam nobis vero deserunt iure sint rem voluptate!
+              </p>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Teknologi :</p>
+              <div class="flex items-center gap-2 pt-2">
+                <div class="flex items-center gap-1 bg-red-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-laravel font-semibold"></i>
+                  <p>Laravel</p>
+                </div>
+                <div class="flex items-center gap-1 bg-[#61DBFB] text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-brands fa-react font-semibold"></i>
+                  <p>React Js</p>
+                </div>
+                <div class="flex items-center gap-1 bg-yellow-600 text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                  <i class="fa-solid fa-database font-semibold"></i>
+                  <p>MySql</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-color-black font-semibold">Link Project :</p>
+              <div class="pt-2 flex items-center gap-2">
+                <a href="https://github.com" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-black text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-brands fa-github font-semibold"></i>
+                    <p>Github</p>
+                  </div>
+                </a>
+                <a href="https://banking-app.maleskerja.my.id" target="_blank">
+                  <div class="flex items-center gap-1 bg-color-purple text-white rounded-lg py-1 px-3 text-sm font-semibold">
+                    <i class="fa-solid fa-globe font-semibold"></i>
+                    <p>Website</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Showcase  -->
 
     <!-- Swiperjs -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
