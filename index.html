@@ -39,9 +39,9 @@
   >
     <!-- Header -->
     <header
-      class="sticky top-0 z-40 mx-auto"
+      class="sticky top-0 z-40 mx-auto bg-color-body"
       @scroll.window="scroll = (window.pageYOffset > 70) ? true : false"
-      :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, 'bg-transparent': !scroll }"
+      :class="{ 'bg-color-body shadow-lg rounded-b-3xl': scroll, '': !scroll }"
     >
       <nav class="container py-6 flex justify-between items-center">
         <div data-aos="fade-right" data-aos-duration="1000">
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Link -->
-        <ul class="text-base text-color-black hidden lg:flex items-center justify-center gap-8">
+        <ul class="text-base text-color-black hidden lg:flex items-center justify-center gap-8" data-aos="zoom-in" data-aos-duration="1000">
           <li>
             <a href="" class="hover:text-color-purple transition-colors ease-in duration-200">Products</a>
           </li>
@@ -71,7 +71,7 @@
           </li>
         </ul>
 
-        <div class="hidden lg:flex items-center gap-4">
+        <div class="hidden lg:flex items-center gap-4" data-aos="fade-left" data-aos-duration="1000">
           <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
           <button class="btn-1">Sign In</button>
         </div>
@@ -79,7 +79,7 @@
         <!-- Mobile Menu -->
 
         <!-- Mobile Menu Hamburger-->
-        <div class="lg:hidden flex items-center gap-3">
+        <div class="lg:hidden flex items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
           <div>
             <img src="img/bag-2.svg" alt="" class="p-2 bg-white rounded-full cursor-pointer hover:-translate-y-1 ease-in-out duration-300" />
           </div>
@@ -97,20 +97,25 @@
           <div class="flex flex-col items-center lg:flex-row lg:justify-between">
             <div class="lg:w-1/2 order-2 lg:order-1">
               <div class="flex justify-center lg:justify-normal">
-                <div class="inline-block bg-white py-2 px-4 md:px-6 rounded-full">
+                <div class="inline-block bg-white py-2 px-4 md:px-6 rounded-full" data-aos="fade-up" data-aos-duration="1000">
                   <div class="flex items-center gap-2">
                     <img src="img/global.svg" alt="" />
                     <p class="text-[13px] md:text-base font-semibold md:tracking-wide">We host more than 120,000 websites</p>
                   </div>
                 </div>
               </div>
-              <div class="text-center lg:text-start">
+              <div class="text-center lg:text-start" data-aos="fade-up" data-aos-duration="1200">
                 <h1 class="pt-14 font-Clash_Display text-xl md:text-4xl lg:text-6xl font-bold">Grow Online Business Faster.</h1>
                 <p class="text-color-text pt-6 leading-6 lg:leading-8 tracking-wider text-sm md:text-base md:w-[90%]">
                   We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.
                 </p>
               </div>
-              <a href="" class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10">
+              <a
+                href=""
+                class="flex flex-col items-center md:justify-center lg:justify-normal md:flex-row gap-8 pt-10"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
                 <button class="btn-2">Try Free Trial</button>
                 <div class="flex gap-1 items-center">
                   <img src="img/device-message.svg" alt="" />
@@ -119,7 +124,7 @@
               </a>
             </div>
 
-            <div class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2">
+            <div class="lg:w-1/2 lg:flex lg:justify-end pb-14 lg:pb-0 order-1 lg:order-2" data-aos="zoom-in" data-aos-duration="1500">
               <img src="img/hero-image.png" alt="" />
             </div>
           </div>
@@ -200,12 +205,16 @@
       <!-- Features Section -->
       <section id="features">
         <div class="container py-16">
-          <h1 class="font-semibold font-Clash_Display text-3xl md:text-4xl text-center">Your Best Choice</h1>
+          <h1 class="font-semibold font-Clash_Display text-3xl md:text-4xl text-center" data-aos="fade-up" data-aos-duration="1000">Your Best Choice</h1>
 
           <!-- Content -->
           <div class="grid md:grid-cols-2 lg:grid-cols-4 place-items-center gap-6 pt-8 md:pt-12">
             <!-- Content 1 -->
-            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md">
+            <div
+              class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div>
                 <svg class="stroke-color-purple" width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -252,7 +261,11 @@
             </div>
 
             <!-- Content 2 -->
-            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md">
+            <div
+              class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <div>
                 <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -288,7 +301,11 @@
             </div>
 
             <!-- Content 3 -->
-            <div class="flex flex-col gap-8 bg-color-black p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md relative">
+            <div
+              class="flex flex-col gap-8 bg-color-black p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md relative"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
               <div class="w-14 h-40 bg-white absolute top-4 right-14 -skew-x-[30deg] blur-2xl -z10 opacity-30 overflow-hidden rounded-full"></div>
               <div>
                 <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -321,7 +338,11 @@
             </div>
 
             <!-- Content 4 -->
-            <div class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md">
+            <div
+              class="flex flex-col gap-8 bg-white p-6 rounded-xl justify-end items-center md:items-start w-full mx-auto shadow-md"
+              data-aos="fade-up"
+              data-aos-duration="2500"
+            >
               <div>
                 <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 11.9792V15.8125" stroke="#640EF1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -358,10 +379,10 @@
 
           <div class="flex flex-col lg:flex-row items-center lg:justify-between pt-20 md:pt-24">
             <div class="w-full lg:w-1/2 relative">
-              <div class="w-[85%] md:w-[88%] lg:w-[70%] mx-auto overflow-hidden rounded-tr-[70px] rounded-b-[70px]">
+              <div class="w-[85%] md:w-[88%] lg:w-[70%] mx-auto overflow-hidden rounded-tr-[70px] rounded-b-[70px]" data-aos="zoom-in" data-aos-duration="1000">
                 <img src="img/features-images.png" alt="" class="w-full hover:scale-110 ease-in duration-500" />
               </div>
-              <div class="absolute top-0 right-0 lg:right-[60px] p-4 md:p-6 lg:p-4 bg-color-purple rounded-full">
+              <div class="absolute top-0 right-0 lg:right-[60px] p-4 md:p-6 lg:p-4 bg-color-purple rounded-full" data-aos="zoom-in" data-aos-duration="1500">
                 <svg class="h-10 w-10 md:h-16 md:w-16 lg:h-12 lg:w-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M32.5083 36.8783H14.4917C13.6867 36.8783 12.7858 36.2458 12.5175 35.4791L4.5825 13.2841C3.45167 10.1025 4.77417 9.12498 7.49583 11.08L14.9708 16.4275C16.2167 17.29 17.635 16.8491 18.1717 15.45L21.545 6.46082C22.6183 3.58582 24.4008 3.58582 25.4742 6.46082L28.8475 15.45C29.3842 16.8491 30.8025 17.29 32.0292 16.4275L39.0442 11.425C42.0342 9.27831 43.4717 10.3708 42.245 13.84L34.5017 35.5175C34.2142 36.2458 33.3133 36.8783 32.5083 36.8783Z"
@@ -374,7 +395,7 @@
                   <path d="M18.7083 27.3334H28.2917" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
-              <div class="absolute top-[15%] left-0 lg:left-8 py-6 px-4 bg-white shadow-lg rounded-3xl">
+              <div class="absolute top-[15%] left-0 lg:left-8 py-6 px-4 bg-white shadow-lg rounded-3xl" data-aos="zoom-in" data-aos-duration="2000">
                 <div class="flex flex-col items-center gap-4 md:gap-6">
                   <div>
                     <svg class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -409,7 +430,11 @@
                   </div>
                 </div>
               </div>
-              <div class="absolute bottom-[15%] right-0 lg:right-[40px] py-3 px-5 md:py-4 md:px-6 bg-white shadow-lg rounded-3xl">
+              <div
+                class="absolute bottom-[15%] right-0 lg:right-[40px] py-3 px-5 md:py-4 md:px-6 bg-white shadow-lg rounded-3xl"
+                data-aos="fade-up"
+                data-aos-duration="2500"
+              >
                 <div class="flex items-center gap-2 md:gap-4">
                   <div>
                     <svg class="w-10 h-[41px] md:w-16 md:h-[65px] lg:w-11 lg:h-11" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -457,16 +482,20 @@
 
             <div class="w-full pt-12 lg:pt-0 lg:w-1/2 lg:flex lg:justify-end">
               <div class="lg:w-[90%] text-center lg:text-start">
-                <h1 class="font-Clash_Display font-bold leading-snug md:leading-[60px] text-3xl md:text-5xl">We Have Very Strong Ecosystem</h1>
+                <h1 class="font-Clash_Display font-bold leading-snug md:leading-[60px] text-3xl md:text-5xl" data-aos="zoom-in" data-aos-duration="1000">
+                  We Have Very Strong Ecosystem
+                </h1>
                 <p
                   class="text-color-text leading-relaxed pt-6 lg:pt-4 text-sm text-justify md:text-lg lg:text-start lg:text-base md:leading-[30px] lg:leading-[30px]"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
                 >
                   We provide a variety of servers to grow your users acquisition much user-friendly and boosting up sales.
                 </p>
 
                 <div class="py-10 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:place-items-center md:space-y-0 lg:block lg:space-y-6">
                   <!-- content 1 -->
-                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl" data-aos="fade-up" data-aos-duration="1000">
                     <div>
                       <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -492,7 +521,7 @@
                   </div>
 
                   <!-- content 2 -->
-                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl" data-aos="fade-up" data-aos-duration="1500">
                     <div>
                       <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -537,7 +566,7 @@
                   </div>
 
                   <!-- content 3 -->
-                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl">
+                  <div class="flex items-center gap-3 bg-white shadow-md p-6 w-full rounded-2xl" data-aos="fade-up" data-aos-duration="2000">
                     <div>
                       <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -573,7 +602,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start pt-2 md:pt-4 lg:pt-0">
+                <div
+                  class="flex flex-col md:flex-row gap-6 items-center justify-center lg:justify-start pt-2 md:pt-4 lg:pt-0"
+                  data-aos="zoom-in"
+                  data-aos-duration="1000"
+                >
                   <button class="btn-2">Explore More</button>
                   <div class="flex gap-1 items-center">
                     <img src="img/device-message.svg" alt="" />
@@ -592,15 +625,15 @@
         <div class="pt-2 md:pt-6 lg:pt-8 pb-16">
           <div class="container">
             <div class="text-center lg:w-[60%] mx-auto">
-              <h1 class="font-Clash_Display font-bold text-3xl md:text-4xl pb-6">Our Showcase</h1>
-              <p class="text-sm md:text-base text-color-text leading-relaxed md:leading-[30px]">
+              <h1 class="font-Clash_Display font-bold text-3xl md:text-4xl pb-6" data-aos="zoom-in" data-aos-duration="1000">Our Showcase</h1>
+              <p class="text-sm md:text-base text-color-text leading-relaxed md:leading-[30px]" data-aos="fade-up" data-aos-duration="1500">
                 They built amazing website to help more people around the world by using our recommendation services and products
               </p>
             </div>
           </div>
 
           <!-- Slider -->
-          <div class="pt-12">
+          <div class="pt-12" data-aos="zoom-in" data-aos-duration="1500">
             <div class="swiper swiperShowCase">
               <div class="swiper-wrapper">
                 <!-- Slide 1 -->
@@ -732,7 +765,7 @@
       <!-- Section FAQ -->
       <section id="faq">
         <div class="container pt-2 md:pt-6 lg:pt-8 pb-16">
-          <h1 class="text-3xl md:text-4xl font-Clash_Display font-bold text-center">Frequently Asked Questions</h1>
+          <h1 class="text-3xl md:text-4xl font-Clash_Display font-bold text-center" data-aos="fade-up" data-aos-duration="1000">Frequently Asked Questions</h1>
 
           <!-- Faq -->
           <div
@@ -740,7 +773,13 @@
             x-data="{ activeAccordion: '', setActiveAccordion(id) { this.activeAccordion = (this.activeAccordion == id) ? '' : id } }"
           >
             <!-- faq 1 -->
-            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
+            <div
+              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
+              x-data="{ id: $id('accordion') }"
+              @click="setActiveAccordion(id)"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
@@ -769,7 +808,13 @@
             </div>
 
             <!-- faq 2 -->
-            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
+            <div
+              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
+              x-data="{ id: $id('accordion') }"
+              @click="setActiveAccordion(id)"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+            >
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
@@ -798,7 +843,13 @@
             </div>
 
             <!-- faq 3 -->
-            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
+            <div
+              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
+              x-data="{ id: $id('accordion') }"
+              @click="setActiveAccordion(id)"
+              data-aos="fade-up"
+              data-aos-duration="1400"
+            >
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
@@ -827,7 +878,13 @@
             </div>
 
             <!-- faq 4 -->
-            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
+            <div
+              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
+              x-data="{ id: $id('accordion') }"
+              @click="setActiveAccordion(id)"
+              data-aos="fade-up"
+              data-aos-duration="1600"
+            >
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
@@ -856,7 +913,13 @@
             </div>
 
             <!-- faq 5 -->
-            <div class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid" x-data="{ id: $id('accordion') }" @click="setActiveAccordion(id)">
+            <div
+              class="bg-white p-4 rounded-xl cursor-pointer break-inside-avoid"
+              x-data="{ id: $id('accordion') }"
+              @click="setActiveAccordion(id)"
+              data-aos="fade-up"
+              data-aos-duration="1800"
+            >
               <!-- Pertanyaan -->
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
@@ -885,7 +948,7 @@
             </div>
 
             <!-- send mail -->
-            <div class="bg-color-black p-4 rounded-xl break-inside-avoid">
+            <div class="bg-color-black p-4 rounded-xl break-inside-avoid" data-aos="fade-up" data-aos-duration="2000">
               <div class="flex items-center justify-between w-full">
                 <div class="w-[90%]">
                   <div class="flex gap-1 items-center">
@@ -930,14 +993,14 @@
       <!-- End SectionFaq -->
 
       <!-- Section CTA Call to action -->
-      <section id="cta" class="">
+      <section id="cta" class="" data-aos="zoom-in" data-aos-duration="1000">
         <div class="container relative z-20">
           <div class="bg-[#640EF1] py-12 md:py-16 lg:py-12 px-[10px] md:px-[20px] lg:px-[30px] rounded-3xl md:rounded-[48px] lg:rounded-[32px]">
             <div class="flex flex-col lg:flex-row items-center gap-6">
               <!-- Bagian Kiri -->
               <div class="lg:w-1/2">
                 <div class="flex justify-center lg:block">
-                  <div class="inline-block bg-white py-2 px-3 rounded-full mx-auto">
+                  <div class="inline-block bg-white py-2 px-3 rounded-full mx-auto" data-aos="fade-up" data-aos-duration="1000">
                     <div class="flex items-center gap-[5px] md:gap-2">
                       <div class="w-[20px] h-[20px] md:w-[24px] md:h-[24px]">
                         <img src="img/global.png" alt="" class="w-full h-full" />
@@ -948,7 +1011,7 @@
                   </div>
                 </div>
                 <!-- text -->
-                <div class="py-6 md:py-8 text-center lg:text-start">
+                <div class="py-6 md:py-8 text-center lg:text-start" data-aos="fade-up" data-aos-duration="1200">
                   <h1 class="text-white font-Clash_Display text-2xl md:text-5xl font-semibold">Start Growing Today</h1>
                   <p
                     class="pt-2 md:pt-4 text-white text-xs md:text-base lg:text-sm leading-relaxed md:leading-[30px] lg:leading-[30px] w-[90%] mx-auto lg:mx-0"
@@ -957,7 +1020,11 @@
                   </p>
                 </div>
                 <!-- button -->
-                <div class="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6 pt-2 md:pt-4">
+                <div
+                  class="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-6 pt-2 md:pt-4"
+                  data-aos="fade-up"
+                  data-aos-duration="1400"
+                >
                   <button
                     class="bg-[#FFD15A] py-3 px-8 md:py-4 md:px-10 rounded-full font-bold text-color-black hover:outline-none hover:bg-transparent hover:ring hover:ring-[#ffD15A] hover:text-white transition-colors ease duration-300"
                   >
@@ -999,7 +1066,11 @@
                 <!-- Content -->
                 <div class="grid grid-cols-2 md:grid-cols-3 place-items-center gap-6 pt-8 md:pt-10 lg:pt-0">
                   <!-- Content 1 -->
-                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
+                  <div
+                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
+                    data-aos="zoom-in"
+                    data-aos-duration="1000"
+                  >
                     <div>
                       <img src="img/scroll.svg" alt="" class="" />
                     </div>
@@ -1008,7 +1079,11 @@
                     </div>
                   </div>
                   <!-- Content 2 -->
-                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
+                  <div
+                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
+                    data-aos="zoom-in"
+                    data-aos-duration="1200"
+                  >
                     <div>
                       <img src="img/cpu-charge.svg" alt="" />
                     </div>
@@ -1018,7 +1093,11 @@
                   </div>
 
                   <!-- Content 3 -->
-                  <div class="flex flex-col gap-8 bg-color-black py-6 px-4 md:py-10 md:px-6 rounded-3xl justify-center items-center relative w-full">
+                  <div
+                    class="flex flex-col gap-8 bg-color-black py-6 px-4 md:py-10 md:px-6 rounded-3xl justify-center items-center relative w-full"
+                    data-aos="zoom-in"
+                    data-aos-duration="1400"
+                  >
                     <div class="w-24 h-24 bg-white absolute top-3 right-4 -skew-x-[30deg] blur-xl -z10 opacity-30 overflow-hidden rounded-full"></div>
                     <div>
                       <img src="img/security-user.svg" alt="" />
@@ -1029,7 +1108,11 @@
                   </div>
 
                   <!-- Content 4 -->
-                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
+                  <div
+                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
+                    data-aos="zoom-in"
+                    data-aos-duration="1600"
+                  >
                     <div>
                       <img src="img/status-up.svg" alt="" />
                     </div>
@@ -1039,7 +1122,11 @@
                   </div>
 
                   <!-- Content 5 -->
-                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
+                  <div
+                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
+                    data-aos="zoom-in"
+                    data-aos-duration="1800"
+                  >
                     <div>
                       <img src="img/candle.svg" alt="" />
                     </div>
@@ -1049,7 +1136,11 @@
                   </div>
 
                   <!-- Content 6 -->
-                  <div class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full">
+                  <div
+                    class="flex flex-col gap-6 bg-white py-6 px-4 rounded-3xl md:py-10 md:px-6 justify-center items-center w-full"
+                    data-aos="zoom-in"
+                    data-aos-duration="2000"
+                  >
                     <div>
                       <img src="img/crown.svg" alt="" />
                     </div>
@@ -1070,7 +1161,11 @@
         <div class="pt-16 pb-6 container">
           <div class="flex flex-col lg:flex-row items-center lg:items-start">
             <!-- content 1 -->
-            <div class="flex flex-col w-full md:w-[60%] lg:w-[30%] md:justify-center md:items-center lg:justify-normal lg:items-start gap-6 pb-12 lg:pb-0">
+            <div
+              class="flex flex-col w-full md:w-[60%] lg:w-[30%] md:justify-center md:items-center lg:justify-normal lg:items-start gap-6 pb-12 lg:pb-0"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div class="flex items-center gap-1">
                 <div>
                   <img src="img/logo-dark.png" alt="" />
@@ -1090,7 +1185,7 @@
 
             <!-- Content 2 -->
             <div class="flex items-center justify-between w-full lg:w-[50%] lg:mx-auto flex-wrap gap-y-12 md:gap-y-0">
-              <div class="space-y-6">
+              <div class="space-y-6" data-aos="fade-up" data-aos-duration="1200">
                 <h1 class="text-white text-xl font-bold">Product</h1>
                 <div class="flex flex-col gap-4">
                   <a href="" class="text-sm text-[#8D90A8]">Powerful Reports</a>
@@ -1101,7 +1196,7 @@
                 </div>
               </div>
 
-              <div class="space-y-6">
+              <div class="space-y-6" data-aos="fade-up" data-aos-duration="1400">
                 <h1 class="text-white text-xl font-bold">Resources</h1>
                 <div class="flex flex-col gap-4">
                   <a href="" class="text-sm text-[#8D90A8]">Support 24/7</a>
@@ -1112,7 +1207,7 @@
                 </div>
               </div>
 
-              <div class="space-y-6">
+              <div class="space-y-6" data-aos="fade-up" data-aos-duration="1600">
                 <h1 class="text-white text-xl font-bold">Company</h1>
                 <div class="flex flex-col gap-4">
                   <a href="" class="text-sm text-[#8D90A8]">Privacy and Policy</a>
@@ -1207,7 +1302,7 @@
           x-transition:leave="transition ease-in duration-200 transform"
           x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
           x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+          class="overflow-auto w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl max-h-[90vh]"
         >
           <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
             <img src="img/showcase-1.png" alt="" class="w-full h-full object-fill rounded-3xl" />
@@ -1215,7 +1310,7 @@
               <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
             </div>
           </div>
-          <div class="pt-8 pb-12 px-2 md:px-6">
+          <div class="pt-8 pb-10 px-2 md:px-6">
             <div class="flex flex-col gap-2 items-center justify-center">
               <h1 class="text-color-black font-semibold md:text-xl">Aplikasi Keungan "UangKu"</h1>
               <p class="text-xs text-color-black tracking-widest">16/04/2023</p>
@@ -1292,7 +1387,7 @@
           x-transition:leave="transition ease-in duration-200 transform"
           x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
           x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+          class="overflow-auto w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl max-h-[90vh]"
         >
           <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
             <img src="img/showcase-2.png" alt="" class="w-full h-full object-fill rounded-3xl" />
@@ -1300,7 +1395,7 @@
               <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
             </div>
           </div>
-          <div class="pt-8 pb-12 px-2 md:px-6">
+          <div class="pt-8 pb-10 px-2 md:px-6">
             <div class="flex flex-col gap-2 items-center justify-center">
               <h1 class="text-color-black font-semibold md:text-xl">Website Freelancer "Gawe"</h1>
               <p class="text-xs text-color-black tracking-widest">12/01/2024</p>
@@ -1377,7 +1472,7 @@
           x-transition:leave="transition ease-in duration-200 transform"
           x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
           x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+          class="overflow-auto w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl max-h-[90vh]"
         >
           <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
             <img src="img/showcase-3.png" alt="" class="w-full h-full object-fill rounded-3xl" />
@@ -1385,7 +1480,7 @@
               <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
             </div>
           </div>
-          <div class="pt-8 pb-12 px-2 md:px-6">
+          <div class="pt-8 pb-10 px-2 md:px-6">
             <div class="flex flex-col gap-2 items-center justify-center">
               <h1 class="text-color-black font-semibold md:text-xl">Website Belajar Online "YukBelajar"</h1>
               <p class="text-xs text-color-black tracking-widest">04/04/2024</p>
@@ -1462,7 +1557,7 @@
           x-transition:leave="transition ease-in duration-200 transform"
           x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
           x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          class="overflow-hidden w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl"
+          class="overflow-auto w-full max-w-md transition-all transform bg-white rounded-t-3xl rounded-b-lg shadow-xl max-h-[90vh]"
         >
           <div class="border-2 border-violet-500 rounded-3xl relative h-[280px]">
             <img src="img/showcase-4.png" alt="" class="w-full h-full object-fill rounded-3xl" />
@@ -1470,7 +1565,7 @@
               <i class="fa-solid fa-xmark py-2 px-3 bg-color-black rounded-full"></i>
             </div>
           </div>
-          <div class="pt-8 pb-12 px-2 md:px-6">
+          <div class="pt-8 pb-10 px-2 md:px-6">
             <div class="flex flex-col gap-2 items-center justify-center">
               <h1 class="text-color-black font-semibold md:text-xl">Aplikasi Kesehatan "YogaKuy"</h1>
               <p class="text-xs text-color-black tracking-widest">05/04/2024</p>
